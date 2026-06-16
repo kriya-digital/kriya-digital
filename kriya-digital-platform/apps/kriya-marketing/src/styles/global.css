@@ -1,0 +1,17 @@
+@import "tailwindcss";
+
+@theme {
+  --color-graphite: #3c3c3c;
+  --color-electric-sulfur: #fcfd95;
+  --color-deep-cobalt: #4c64c0;
+  --color-cerulean-blue: #5fa8d3;
+  --color-true-white: #ffffff;
+  --color-lilac-white: #fff5ff;
+}
+
+@layer base {
+  body {
+    background-color: var(--color-graphite);
+    color: var(--color-true-white);
+  }
+}

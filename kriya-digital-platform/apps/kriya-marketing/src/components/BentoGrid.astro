@@ -1,0 +1,92 @@
+---
+---
+
+<div class="hidden md:grid md:grid-cols-2 lg:grid-cols-4 gap-6 px-6 max-w-7xl mx-auto pt-32 pb-24">
+  <!-- Block 1: The Anchor (2x2) -->
+  <section class="col-span-1 md:col-span-2 lg:col-span-2 lg:row-span-2 bg-[#131313]/5 backdrop-blur-md border border-white/10 rounded-[24px] p-8 md:p-12 relative overflow-hidden flex flex-col justify-between min-h-[500px]">
+    <div class="relative z-10">
+      <div class="inline-flex items-center px-3 py-1 rounded-full bg-[#131313]/5 backdrop-blur-md mb-6 border border-white/20">
+        <span class="w-2 h-2 bg-electric-sulfur rounded-full mr-2 animate-pulse"></span>
+        <span class="text-xs font-label-sm uppercase tracking-tighter text-white">Agency Core</span>
+      </div>
+      <h1 class="font-headline-lg text-white text-4xl lg:text-[64px] tracking-tight leading-[0.9] mb-8">
+        Everything web.<br/> we do.
+      </h1>
+      <p class="text-on-surface-variant max-w-md text-lg font-body-lg mb-10">
+        We build hyper-optimized, zero-JS marketing platforms and scalable, interactive web applications for elite brands.
+      </p>
+      <button class="bg-electric-sulfur text-black px-8 py-4 rounded-xl font-headline-md text-lg font-bold hover:shadow-[0_0_30px_rgba(252,253,149,0.3)] transition-all active:scale-95">
+        Start a Project
+      </button>
+    </div>
+  </section>
+
+  <!-- Block 2: The Arsenal (2x1) -->
+  <div class="col-span-1 md:col-span-2 lg:col-span-2 bg-[#131313]/5 backdrop-blur-md border border-white/10 rounded-[16px] p-8 flex flex-col justify-between min-h-[240px] relative overflow-hidden group hover:bg-[#131313]/10 transition-all duration-300">
+    <div class="relative z-10 flex flex-col h-full">
+      <h3 class="font-headline-md text-2xl text-white mb-6">The Arsenal</h3>
+      <div class="flex-1 flex items-center overflow-hidden w-full relative">
+        <div class="flex gap-8 whitespace-nowrap animate-marquee">
+          <span class="font-body-lg text-electric-sulfur font-bold text-xl tracking-wide opacity-80 hover:opacity-100 transition-opacity">Astro</span>
+          <span class="font-body-lg text-white font-bold text-xl tracking-wide opacity-80 hover:opacity-100 transition-opacity">Next.js</span>
+          <span class="font-body-lg text-white font-bold text-xl tracking-wide opacity-80 hover:opacity-100 transition-opacity">Sanity CMS</span>
+          <span class="font-body-lg text-white font-bold text-xl tracking-wide opacity-80 hover:opacity-100 transition-opacity">TypeScript</span>
+          <span class="font-body-lg text-white font-bold text-xl tracking-wide opacity-80 hover:opacity-100 transition-opacity">Tailwind CSS</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Block 3: Featured Case Study (1x1) -->
+  <div class="col-span-1 lg:col-span-1 bg-[#3c3c3c] border border-white/10 rounded-[16px] group relative overflow-hidden min-h-[240px]">
+    <!-- High Contrast Gradient/Placeholder -->
+    <div class="absolute inset-0 bg-gradient-to-br from-[#131313] to-[#3c3c3c] z-0 transition-transform duration-700 group-hover:scale-105"></div>
+    <div class="absolute inset-0 z-10 flex flex-col justify-between p-6">
+      <h3 class="font-label-sm text-electric-sulfur uppercase tracking-widest text-xs">Featured Work</h3>
+      
+      <!-- Glassmorphism Overlay -->
+      <div class="bg-[#131313]/40 backdrop-blur-md border border-white/10 rounded-xl p-4 mt-auto">
+        <p class="font-headline-md text-white text-lg leading-tight">Enterprise Replatforming: <span class="text-electric-sulfur">40% Increase</span> in Core Web Vitals.</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- Block 4: Core Services Matrix (1x1) -->
+  <div class="col-span-1 lg:col-span-1 bg-[#131313]/5 backdrop-blur-md border border-white/10 rounded-[16px] p-6 flex flex-col justify-between min-h-[240px] hover:bg-[#131313]/10 transition-all duration-300">
+    <h3 class="font-headline-md text-2xl text-white mb-4">Our Pillars</h3>
+    <ul class="space-y-4 font-body-lg text-sm text-on-surface-variant">
+      <li class="flex items-start">
+        <span class="material-symbols-outlined text-electric-sulfur text-lg mr-2">build</span>
+        <div>
+          <strong class="text-white block font-medium">Build</strong>
+          <span>High-Performance Architecture</span>
+        </div>
+      </li>
+      <li class="flex items-start">
+        <span class="material-symbols-outlined text-electric-sulfur text-lg mr-2">trending_up</span>
+        <div>
+          <strong class="text-white block font-medium">Scale</strong>
+          <span>SEO & Growth Engineering</span>
+        </div>
+      </li>
+      <li class="flex items-start">
+        <span class="material-symbols-outlined text-electric-sulfur text-lg mr-2">smart_toy</span>
+        <div>
+          <strong class="text-white block font-medium">Automate</strong>
+          <span>AI & Workflow Integration</span>
+        </div>
+      </li>
+    </ul>
+  </div>
+
+</div>
+
+<style>
+  @keyframes marquee {
+    0% { transform: translateX(100%); }
+    100% { transform: translateX(-100%); }
+  }
+  .animate-marquee {
+    animation: marquee 15s linear infinite;
+  }
+</style>

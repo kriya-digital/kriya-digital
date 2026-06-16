@@ -1,0 +1,52 @@
+---
+import Layout from '../layouts/Layout.astro';
+import DesktopNav from '../components/DesktopNav.astro';
+import BentoGrid from '../components/BentoGrid.astro';
+import MobileCanvas from '../components/MobileCanvas.tsx';
+---
+
+<Layout title="Kriya | Everything web. we do.">
+  <!-- Desktop Layout (Hidden on Mobile) -->
+  <div class="hidden md:block">
+    <DesktopNav />
+    <BentoGrid />
+    
+    <footer class="w-full py-12 bg-[#0e0e0e] border-t border-white/10 mt-20">
+      <div class="flex flex-col md:flex-row justify-between items-center px-8 max-w-7xl mx-auto gap-8">
+        <div class="flex flex-col gap-2">
+          <div class="font-headline-lg text-xl font-bold text-white">Kriya</div>
+          <p class="font-body-lg text-sm text-on-surface-variant">© 2024 Kriya Industrial-Cyber. All rights reserved.</p>
+        </div>
+        <div class="flex gap-8">
+          <a class="text-on-surface-variant hover:text-white transition-colors text-sm font-body-lg" href="/corporate/privacy-notice">Privacy</a>
+          <a class="text-on-surface-variant hover:text-white transition-colors text-sm font-body-lg" href="#">Terms</a>
+          <a class="text-on-surface-variant hover:text-white transition-colors text-sm font-body-lg" href="/corporate/dpa">DPA</a>
+          <a class="text-on-surface-variant hover:text-white transition-colors text-sm font-body-lg" href="/corporate/grievance-redressal">Grievances</a>
+        </div>
+      </div>
+    </footer>
+  </div>
+
+  <!-- Mobile Layout (Hidden on Desktop) -->
+  <MobileCanvas client:load />
+
+</Layout>
+
+<script>
+  // Simple scroll reveal for desktop elements
+  const observerOptions = { threshold: 0.1 };
+
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.remove('opacity-0', 'translate-y-5');
+        entry.target.classList.add('opacity-100', 'translate-y-0');
+      }
+    });
+  }, observerOptions);
+
+  document.querySelectorAll('.glass-effect, [class*="bg-[#131313]/5"]').forEach(el => {
+    el.classList.add('opacity-0', 'translate-y-5', 'transition-all', 'duration-700', 'ease-out');
+    observer.observe(el);
+  });
+</script>
