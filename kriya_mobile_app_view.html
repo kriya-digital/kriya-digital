@@ -1,0 +1,396 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" name="viewport"/>
+<title>Kriya - Mobile Portfolio</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@600;700&amp;family=Public+Sans:wght@400;600&amp;family=Inter:wght@400;500&amp;family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@100..900&amp;family=Public+Sans:wght@100..900&amp;family=Space+Grotesk:wght@100..900&amp;display=swap" rel="stylesheet"/>
+<!-- Tailwind Configuration -->
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                    "surface-container-high": "#2b2a23",
+                    "on-tertiary-fixed-variant": "#2b4c4d",
+                    "on-tertiary-container": "#496a6b",
+                    "surface-tint": "#cbcc6a",
+                    "primary-fixed": "#e7e883",
+                    "on-secondary": "#323211",
+                    "primary-container": "#e7e883",
+                    "outline": "#93917f",
+                    "inverse-primary": "#616206",
+                    "on-error": "#690005",
+                    "secondary-fixed-dim": "#cac99b",
+                    "error-container": "#93000a",
+                    "secondary-fixed": "#e6e5b5",
+                    "on-surface-variant": "#c9c7b4",
+                    "on-tertiary-fixed": "#002021",
+                    "outline-variant": "#484739",
+                    "surface-container-low": "#1c1c15",
+                    "primary": "#ffffff",
+                    "surface-dim": "#14140d",
+                    "error": "#ffb4ab",
+                    "inverse-on-surface": "#313129",
+                    "on-primary-fixed-variant": "#494900",
+                    "on-background": "#e6e2d7",
+                    "surface-variant": "#36352e",
+                    "on-secondary-fixed-variant": "#484925",
+                    "on-secondary-fixed": "#1c1d01",
+                    "inverse-surface": "#e6e2d7",
+                    "surface-container": "#202019",
+                    "secondary": "#cac99b",
+                    "on-surface": "#e6e2d7",
+                    "tertiary-container": "#c6e9ea",
+                    "tertiary": "#ffffff",
+                    "on-primary": "#323200",
+                    "surface-container-highest": "#36352e",
+                    "background": "#14140d",
+                    "surface": "#14140d",
+                    "secondary-container": "#484925",
+                    "on-primary-fixed": "#1c1d00",
+                    "surface-container-lowest": "#0f0e08",
+                    "on-tertiary": "#133537",
+                    "surface-bright": "#3a3932",
+                    "tertiary-fixed-dim": "#aacdce",
+                    "on-error-container": "#ffdad6",
+                    "tertiary-fixed": "#c6e9ea",
+                    "primary-fixed-dim": "#cbcc6a",
+                    "on-primary-container": "#67680e",
+                    "on-secondary-container": "#b8b88b"
+            },
+            "borderRadius": {
+                    "DEFAULT": "0.25rem",
+                    "lg": "0.5rem",
+                    "xl": "0.75rem",
+                    "full": "9999px"
+            },
+            "spacing": {
+                    "gutter-desktop": "24px",
+                    "margin-main": "32px",
+                    "gutter-mobile": "16px",
+                    "bento-gap": "24px"
+            },
+            "fontFamily": {
+                    "headline-md": ["Space Grotesk"],
+                    "headline-lg": ["Space Grotesk"],
+                    "label-sm": ["Public Sans"],
+                    "body-lg": ["Inter"]
+            },
+            "fontSize": {
+                    "headline-md": ["28px", {"lineHeight": "1.3", "fontWeight": "600"}],
+                    "headline-lg": ["40px", {"lineHeight": "1.2", "letterSpacing": "-0.02em", "fontWeight": "700"}],
+                    "label-sm": ["12px", {"lineHeight": "1", "letterSpacing": "0.05em", "fontWeight": "600"}],
+                    "body-lg": ["16px", {"lineHeight": "1.6", "fontWeight": "400"}]
+            }
+          }
+        }
+      }
+    </script>
+<style>
+        body {
+            background-color: #14140d;
+            color: #e6e2d7;
+            overflow-x: hidden;
+            -webkit-font-smoothing: antialiased;
+        }
+        
+        .snap-container {
+            scroll-snap-type: x mandatory;
+            display: flex;
+            overflow-x: auto;
+            scroll-behavior: smooth;
+            -ms-overflow-style: none;
+            scrollbar-width: none;
+            height: 100vh;
+        }
+        
+        .snap-container::-webkit-scrollbar {
+            display: none;
+        }
+        
+        .snap-page {
+            scroll-snap-align: start;
+            flex: 0 0 100vw;
+            width: 100vw;
+            height: 100vh;
+            overflow-y: auto;
+            padding-bottom: 120px; /* Space for Bottom Nav */
+        }
+
+        .glass-card {
+            background: rgba(255, 255, 255, 0.05);
+            backdrop-filter: blur(16px);
+            -webkit-backdrop-filter: blur(16px);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+        }
+
+        .bottom-nav-blur {
+            background: rgba(255, 255, 255, 0.08);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            border-top: 1px solid rgba(255, 255, 255, 0.12);
+        }
+
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+
+        .active-icon {
+            font-variation-settings: 'FILL' 1;
+            color: #e7e883; /* primary-fixed / primary-olive-gold */
+        }
+        
+        .bento-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 16px;
+        }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+</head>
+<body class="bg-surface font-body-lg text-on-surface">
+<!-- Top App Bar -->
+<header class="fixed top-0 w-full z-50 flex items-center justify-between px-gutter-mobile h-16 backdrop-blur-lg border-b border-white/10">
+<div class="font-headline-md text-headline-md font-bold text-primary">Kriya</div>
+<div class="flex items-center gap-4">
+<button class="w-10 h-10 rounded-full flex items-center justify-center hover:bg-surface-variant/20 transition-all duration-300">
+<span class="material-symbols-outlined text-primary">menu</span>
+</button>
+<div class="w-8 h-8 rounded-full bg-primary-container flex items-center justify-center overflow-hidden">
+<img alt="User" class="w-full h-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDuPQlm59DCns4J5yPr6s82kkQ9Ybo4SASJ2VGBdOpXDeSZTis_uVKq5t3yexGIxZpJQ-dgCZuvKgKNAXOuQvUqk55ONTh5xV8gCdyJXQvgqGYFhZDJqX0kDjHv7Eud7ckMd2_CixdnE2r9-JELfzs7FZ1g795x6b8VTKsiVrIucRFfXbk9lXL_5wOB7aQn8k3g8p-G7nPrVaNOjhuOMTE3zq-228F0JUDNn3g9b-nuoUKlmH6lZuu6lj0vdot92jEe5z04emB4RRv9"/>
+</div>
+</div>
+</header>
+<!-- Main Scrollable Canvas -->
+<main class="snap-container" id="main-canvas">
+<!-- Section: Home -->
+<section class="snap-page pt-24 px-gutter-mobile" id="home">
+<div class="bento-grid">
+<!-- Hero Block -->
+<div class="relative min-h-[340px] rounded-[24px] overflow-hidden flex flex-col justify-end p-8 bg-surface-container-high shadow-2xl">
+
+<div class="relative z-10">
+<span class="font-label-sm text-label-sm text-primary/60 uppercase tracking-widest mb-2 block">Kriya Studio</span>
+<h1 class="font-headline-lg text-headline-lg text-primary mb-4 leading-none">Everything web. we do.</h1>
+<button class="bg-primary-container text-on-primary-container font-label-sm px-6 py-3 rounded-full flex items-center gap-2 transition-transform active:scale-95">
+                            Start Project <span class="material-symbols-outlined text-sm">arrow_forward</span>
+</button>
+</div>
+</div>
+<!-- Kriya Web Card -->
+<div class="glass-card rounded-[16px] p-6 flex flex-col gap-4">
+<div class="w-12 h-12 bg-primary-fixed-dim/20 rounded-xl flex items-center justify-center">
+<span class="material-symbols-outlined text-primary-fixed-dim" style="font-variation-settings: 'FILL' 1;">public</span>
+</div>
+<div>
+<h2 class="font-headline-md text-headline-md text-primary mb-1">Kriya Web</h2>
+<p class="text-on-surface-variant opacity-80 leading-relaxed">High-performance digital experiences built with industrial precision and creative flair.</p>
+</div>
+</div>
+<!-- Kriya AI Card -->
+<div class="glass-card rounded-[16px] p-6 flex flex-col gap-4">
+<div class="w-12 h-12 bg-tertiary-fixed-dim/20 rounded-xl flex items-center justify-center">
+<span class="material-symbols-outlined text-tertiary-fixed-dim" style="font-variation-settings: 'FILL' 1;">auto_awesome</span>
+</div>
+<div>
+<h2 class="font-headline-md text-headline-md text-primary mb-1">Kriya AI</h2>
+<p class="text-on-surface-variant opacity-80 leading-relaxed">Harnessing generative intelligence to automate workflows and redefine complex data interactions.</p>
+</div>
+</div>
+<!-- Extra Visual Module -->
+<div class="glass-card rounded-[16px] overflow-hidden relative aspect-video">
+<img class="w-full h-full object-cover opacity-60" data-alt="A macro close-up image showing a complex grid of iridescent graphite-colored metallic panels under dramatic blue and cyan lighting. The panels have a subtle frosted glass texture, reflecting soft light and creating a futuristic, industrial tech aesthetic. The overall mood is mysterious, precise, and advanced, perfectly matching a high-end digital workspace theme." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBSk9mCvwWFSEZgB7jzpDS8dX6Hb-BO_Fd7ClLXUDM_hyQMSUsM70zzFMj5lA2u5Qp3URRjxq7hQlkmho-CPT0So8qom9PNUtHiCf5M78uiRNrrwiV5ZLQlM_DDyqkrl0uNx7WulMoi1g3VDQk7pJfw3MeBlhOX79CJW66QIHyFOTIsP6cf5E5L0WyZaFqritnpHqdAfQP1jucT0BkpCMj9vEr-y8RNBVNkqZeGiakBUpwVROBQYvdyKuxzkDV-lTN0pNx76BrSkzfW"/>
+<div class="absolute inset-0 bg-gradient-to-t from-background to-transparent"></div>
+<div class="absolute bottom-6 left-6">
+<h3 class="font-headline-md text-headline-md text-primary">Industrial Tech</h3>
+</div>
+</div>
+</div>
+</section>
+<!-- Section: Solutions -->
+<section class="snap-page pt-24 px-gutter-mobile overflow-y-auto" id="solutions">
+<h2 class="font-headline-lg text-headline-lg text-primary mb-6">Solutions</h2>
+<div class="space-y-4">
+<div class="glass-card p-6 rounded-xl border-l-4 border-l-primary-fixed">
+<div class="flex items-center justify-between mb-2">
+<span class="font-label-sm text-primary-fixed uppercase">Build</span>
+<span class="material-symbols-outlined text-on-surface-variant">arrow_outward</span>
+</div>
+<p class="text-on-surface">Kriya Web | Kriya App | Kriya UI/UX</p>
+</div>
+<div class="glass-card p-6 rounded-xl border-l-4 border-l-tertiary-fixed">
+<div class="flex items-center justify-between mb-2">
+<span class="font-label-sm text-tertiary-fixed uppercase">Scale</span>
+<span class="material-symbols-outlined text-on-surface-variant">arrow_outward</span>
+</div>
+<p class="text-on-surface">Kriya Growth | Kriya SEO | Kriya Social | Kriya Brand</p>
+</div>
+<div class="glass-card p-6 rounded-xl border-l-4 border-l-secondary-fixed">
+<div class="flex items-center justify-between mb-2">
+<span class="font-label-sm text-secondary-fixed uppercase">Automate</span>
+<span class="material-symbols-outlined text-on-surface-variant">arrow_outward</span>
+</div>
+<p class="text-on-surface">Kriya AI</p>
+</div>
+</div>
+</section>
+
+
+
+<!-- Section: Work -->
+<section class="snap-page pt-24 px-gutter-mobile overflow-y-auto" id="work">
+<h2 class="font-headline-lg text-headline-lg text-primary mb-6">Work</h2>
+<div class="space-y-4">
+<div class="glass-card p-6 rounded-xl border-l-4 border-l-primary-fixed">
+<h3 class="font-headline-md text-xl text-primary-fixed mb-2">Case Studies</h3>
+<p class="text-on-surface text-sm">Interactive client success stories.</p>
+</div>
+<div class="glass-card p-6 rounded-xl border-l-4 border-l-primary-fixed">
+<h3 class="font-headline-md text-xl text-primary-fixed mb-2">Live Demos</h3>
+<p class="text-on-surface text-sm">Sandboxed environments for Kriya SaaS tools.</p>
+</div>
+</div>
+</section>
+
+<!-- Section: Insights -->
+<section class="snap-page pt-24 px-gutter-mobile overflow-y-auto" id="insights">
+<h2 class="font-headline-lg text-headline-lg text-primary mb-6">Insights</h2>
+<div class="space-y-4">
+<div class="glass-card p-6 rounded-xl">
+<h3 class="font-headline-md text-xl text-primary mb-2">Engineering Blog</h3>
+<p class="text-on-surface text-sm">Technical breakdowns and Kriya workflows.</p>
+</div>
+<div class="glass-card p-6 rounded-xl">
+<h3 class="font-headline-md text-xl text-primary mb-2">Whitepapers</h3>
+<p class="text-on-surface text-sm">Deep-dive research on AI, growth, and development.</p>
+</div>
+</div>
+</section>
+
+<!-- Section: Corporate -->
+<section class="snap-page pt-24 px-gutter-mobile overflow-y-auto" id="corporate">
+<h2 class="font-headline-lg text-headline-lg text-primary mb-6">Corporate</h2>
+<div class="space-y-4">
+<div class="glass-card p-6 rounded-xl">
+<h3 class="font-headline-md text-xl text-primary mb-2">Contact Portal</h3>
+<p class="text-on-surface text-sm">Get in touch with Kriya.</p>
+</div>
+<div class="glass-card p-6 rounded-xl">
+<h3 class="font-headline-md text-xl text-primary mb-2">Privacy Notice</h3>
+<p class="text-on-surface text-sm">Dynamic Privacy Notice mapping PII usage.</p>
+</div>
+<div class="glass-card p-6 rounded-xl">
+<h3 class="font-headline-md text-xl text-primary mb-2">Vendor DPAs</h3>
+<p class="text-on-surface text-sm">Data Processing Agreements.</p>
+</div>
+<div class="glass-card p-6 rounded-xl">
+<h3 class="font-headline-md text-xl text-primary mb-2">Grievance Redressal</h3>
+<p class="text-on-surface text-sm">Dedicated mechanism for data subjects.</p>
+</div>
+</div>
+</section>
+</main>
+<!-- Bottom Navigation Bar -->
+<nav class="fixed bottom-0 w-full z-50 h-20 px-4 pb-safe flex justify-center items-center bottom-nav-blur pointer-events-none">
+<div class="flex items-center gap-4 pointer-events-auto">
+<!-- Left Swipe Hint -->
+<span id="swipe-left-hint" class="material-symbols-outlined text-on-surface-variant transition-opacity duration-300" style="opacity: 0;">chevron_left</span>
+<!-- Single Indicator Button -->
+<button id="nav-indicator" class="flex items-center justify-center gap-2 bg-primary-container text-on-primary-container rounded-full px-6 py-3 active:scale-95 transition-all duration-300 shadow-lg" onclick="nextPage()">
+<span id="nav-icon" class="material-symbols-outlined text-xl" style="font-variation-settings: 'FILL' 1;">home</span>
+<span id="nav-text" class="font-label-sm text-sm tracking-wider font-bold uppercase">Home</span>
+</button>
+<!-- Right Swipe Hint -->
+<span id="swipe-right-hint" class="material-symbols-outlined text-on-surface-variant transition-opacity duration-300 animate-pulse" style="opacity: 0.5;">chevron_right</span>
+</div>
+</nav>
+<script>
+        const container = document.getElementById('main-canvas');
+        const navIndicator = document.getElementById('nav-indicator');
+        const navIcon = document.getElementById('nav-icon');
+        const navText = document.getElementById('nav-text');
+        const swipeLeftHint = document.getElementById('swipe-left-hint');
+        const swipeRightHint = document.getElementById('swipe-right-hint');
+
+        const pages = [
+            { icon: 'home', text: 'Home' },
+            { icon: 'grid_view', text: 'Solutions' },
+            { icon: 'work', text: 'Work' },
+            { icon: 'insights', text: 'Insights' },
+            { icon: 'business', text: 'Corporate' }
+        ];
+
+        let currentPageIndex = 0;
+
+        function scrollToPage(index) {
+            container.scrollTo({
+                left: index * window.innerWidth,
+                behavior: 'smooth'
+            });
+            updateNav(index);
+        }
+
+        function nextPage() {
+            let next = (currentPageIndex + 1) % pages.length;
+            scrollToPage(next);
+        }
+
+        function updateNav(index) {
+            if (currentPageIndex === index) return;
+            currentPageIndex = index;
+            
+            navIndicator.style.transform = 'scale(0.9)';
+            navIndicator.style.opacity = '0.5';
+            
+            setTimeout(() => {
+                navIcon.textContent = pages[index].icon;
+                navText.textContent = pages[index].text;
+                navIndicator.style.transform = 'scale(1)';
+                navIndicator.style.opacity = '1';
+                
+                // Update swipe hints
+                swipeLeftHint.style.opacity = index > 0 ? '0.5' : '0';
+                swipeRightHint.style.opacity = index < pages.length - 1 ? '0.5' : '0';
+                
+                if (index === 0) {
+                    swipeRightHint.classList.add('animate-pulse');
+                } else {
+                    swipeRightHint.classList.remove('animate-pulse');
+                }
+                
+                if ('vibrate' in navigator) {
+                    navigator.vibrate(10);
+                }
+            }, 150);
+        }
+
+        // Listen for scroll snaps to update nav
+        let isScrolling;
+        container.addEventListener('scroll', () => {
+            window.clearTimeout(isScrolling);
+            isScrolling = setTimeout(() => {
+                const index = Math.round(container.scrollLeft / window.innerWidth);
+                updateNav(index);
+            }, 66);
+        }, false);
+
+        // Haptic feedback simulation
+        navIndicator.addEventListener('touchstart', () => {
+            if ('vibrate' in navigator) {
+                navigator.vibrate(10);
+            }
+        });
+
+        // Prevents pull-to-refresh on mobile if needed
+        document.body.style.overscrollBehavior = 'none';
+    </script>
+</body></html>

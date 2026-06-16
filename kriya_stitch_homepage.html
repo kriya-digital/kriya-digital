@@ -1,0 +1,351 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Kriya | Everything web. we do.</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300..700&amp;family=Inter:wght@300..600&amp;family=Public+Sans:wght@400..700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "on-secondary-fixed": "#001452",
+                        "tertiary-fixed": "#c6e7ff",
+                        "on-error-container": "#ffdad6",
+                        "secondary-container": "#243f9a",
+                        "on-tertiary-fixed-variant": "#004c6b",
+                        "primary-fixed": "#e7e883",
+                        "error": "#ffb4ab",
+                        "on-secondary-fixed-variant": "#243f9a",
+                        "on-primary": "#323200",
+                        "on-primary-fixed": "#1c1d00",
+                        "inverse-surface": "#e4e2e1",
+                        "primary-container": "#e7e883",
+                        "on-surface": "#e4e2e1",
+                        "on-secondary": "#002583",
+                        "surface-container-low": "#1b1c1c",
+                        "surface-container-highest": "#353535",
+                        "inverse-on-surface": "#303030",
+                        "on-tertiary-fixed": "#001e2d",
+                        "surface-tint": "#cacc6a",
+                        "on-tertiary": "#00344b",
+                        "primary-fixed-dim": "#cacc6a",
+                        "on-primary-container": "#67680e",
+                        "primary": "#ffffff",
+                        "background": "#131313",
+                        "secondary-fixed-dim": "#b7c4ff",
+                        "surface-container-high": "#2a2a2a",
+                        "on-error": "#690005",
+                        "on-background": "#e4e2e1",
+                        "on-tertiary-container": "#0f6b93",
+                        "surface-variant": "#353535",
+                        "secondary-fixed": "#dde1ff",
+                        "surface-container": "#1f2020",
+                        "secondary": "#b7c4ff",
+                        "tertiary-container": "#c6e7ff",
+                        "tertiary": "#ffffff",
+                        "surface": "#131313",
+                        "surface-container-lowest": "#0e0e0e",
+                        "error-container": "#93000a",
+                        "on-primary-fixed-variant": "#484a00",
+                        "on-surface-variant": "#c9c7b4",
+                        "outline": "#93917f",
+                        "inverse-primary": "#616205",
+                        "tertiary-fixed-dim": "#87cffc",
+                        "on-secondary-container": "#9fb1ff",
+                        "surface-bright": "#393939",
+                        "outline-variant": "#484739",
+                        "surface-dim": "#131313",
+                        "sulfur": "#fcfd95"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "2xl": "1rem",
+                        "3xl": "1.5xl",
+                        "hero": "24px",
+                        "card": "16px",
+                        "full": "9999px"
+                    },
+                    "spacing": {
+                        "margin-main": "32px",
+                        "gutter-desktop": "24px",
+                        "gutter-mobile": "16px",
+                        "bento-gap": "24px"
+                    },
+                    "fontFamily": {
+                        "label-sm": ["Public Sans"],
+                        "headline-md": ["Space Grotesk"],
+                        "headline-lg": ["Space Grotesk"],
+                        "body-lg": ["Inter"]
+                    }
+                }
+            }
+        }
+    </script>
+<style>
+        body {
+            background-color: #131313;
+            color: #e4e2e1;
+            overflow-x: hidden;
+        }
+        .glass-effect {
+            background: rgba(255, 255, 255, 0.05);
+            backdrop-filter: blur(16px);
+            -webkit-backdrop-filter: blur(16px);
+            border: 1px solid rgba(255, 255, 255, 0.12);
+        }
+        .glass-hover:hover {
+            background: rgba(255, 255, 255, 0.10);
+            transition: all 0.3s ease;
+        }
+        .text-sulfur { color: #fcfd95; }
+        .bg-sulfur { background-color: #fcfd95; }
+        
+        .bento-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 24px;
+        }
+        @media (max-width: 1024px) {
+            .bento-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+        @media (max-width: 640px) {
+            .bento-grid {
+                grid-template-columns: 1fr;
+                gap: 16px;
+            }
+        }
+
+        .dropdown-panel {
+            opacity: 0;
+            pointer-events: none;
+            transform: translateY(-10px);
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+        .group:hover .dropdown-panel {
+            opacity: 1;
+            pointer-events: auto;
+            transform: translateY(0);
+        }
+
+        @keyframes pulse-soft {
+            0%, 100% { opacity: 0.4; }
+            50% { opacity: 0.8; }
+        }
+        .animate-pulse-soft {
+            animation: pulse-soft 3s infinite ease-in-out;
+        }
+    </style>
+</head>
+<body class="font-body-lg text-body-lg selection:bg-sulfur selection:text-black">
+<!-- TopNavBar -->
+<nav class="fixed top-0 w-full z-50 glass-effect bg-surface/10 border-b border-white/10 shadow-xl">
+<div class="flex justify-between items-center px-6 py-4 max-w-7xl mx-auto">
+<div class="font-display text-2xl font-black tracking-tighter text-primary">Kriya</div>
+<div class="hidden md:flex items-center space-x-8">
+      
+      <!-- Solutions Mega Menu -->
+      <div class="group relative py-2">
+        <button class="font-body text-label-md text-on-surface-variant hover:text-primary transition-colors duration-300 flex items-center gap-1">
+          Solutions <span class="material-symbols-outlined text-[18px]">expand_more</span>
+        </button>
+        <div class="dropdown-panel absolute top-full left-1/2 -translate-x-1/2 mt-2 w-[600px] glass-effect rounded-card p-6 grid grid-cols-3 gap-6 shadow-2xl">
+          <div>
+            <p class="text-sulfur font-label-sm text-[10px] uppercase tracking-widest mb-4">Build</p>
+            <ul class="space-y-3">
+              <li><a class="text-on-surface hover:text-sulfur text-sm transition-colors block" href="#">Kriya Web</a></li>
+              <li><a class="text-on-surface hover:text-sulfur text-sm transition-colors block" href="#">Kriya App</a></li>
+              <li><a class="text-on-surface hover:text-sulfur text-sm transition-colors block" href="#">Kriya UI/UX</a></li>
+            </ul>
+          </div>
+          <div>
+            <p class="text-sulfur font-label-sm text-[10px] uppercase tracking-widest mb-4">Scale</p>
+            <ul class="space-y-3">
+              <li><a class="text-on-surface hover:text-sulfur text-sm transition-colors block" href="#">Kriya Growth</a></li>
+              <li><a class="text-on-surface hover:text-sulfur text-sm transition-colors block" href="#">Kriya SEO</a></li>
+              <li><a class="text-on-surface hover:text-sulfur text-sm transition-colors block" href="#">Kriya Social</a></li>
+              <li><a class="text-on-surface hover:text-sulfur text-sm transition-colors block" href="#">Kriya Brand</a></li>
+            </ul>
+          </div>
+          <div>
+            <p class="text-sulfur font-label-sm text-[10px] uppercase tracking-widest mb-4">Automate</p>
+            <ul class="space-y-3">
+              <li><a class="text-on-surface hover:text-sulfur text-sm transition-colors block" href="#">Kriya AI</a></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+      
+
+
+      <!-- Work Menu -->
+      <div class="group relative py-2">
+        <a href="#" class="font-body text-label-md text-on-surface-variant hover:text-primary transition-colors duration-300 flex items-center gap-1">
+          Work <span class="material-symbols-outlined text-[18px]">expand_more</span>
+        </a>
+        <div class="dropdown-panel absolute top-full left-1/2 -translate-x-1/2 mt-2 w-[250px] glass-effect rounded-card p-6 shadow-2xl">
+          <ul class="space-y-3">
+            <li><a class="text-on-surface hover:text-sulfur text-sm transition-colors block" href="#">Case Studies</a></li>
+            <li><a class="text-on-surface hover:text-sulfur text-sm transition-colors block" href="#">Live Demos</a></li>
+          </ul>
+        </div>
+      </div>
+
+      <!-- Insights Menu -->
+      <div class="group relative py-2">
+        <a href="#" class="font-body text-label-md text-on-surface-variant hover:text-primary transition-colors duration-300 flex items-center gap-1">
+          Insights <span class="material-symbols-outlined text-[18px]">expand_more</span>
+        </a>
+        <div class="dropdown-panel absolute top-full left-1/2 -translate-x-1/2 mt-2 w-[250px] glass-effect rounded-card p-6 shadow-2xl">
+          <ul class="space-y-3">
+            <li><a class="text-on-surface hover:text-sulfur text-sm transition-colors block" href="#">Engineering Blog</a></li>
+            <li><a class="text-on-surface hover:text-sulfur text-sm transition-colors block" href="#">Whitepapers</a></li>
+          </ul>
+        </div>
+      </div>
+      
+      <!-- Corporate Menu -->
+      <div class="group relative py-2">
+        <button class="font-body text-label-md text-on-surface-variant hover:text-primary transition-colors duration-300 flex items-center gap-1">
+          Corporate <span class="material-symbols-outlined text-[18px]">expand_more</span>
+        </button>
+        <div class="dropdown-panel absolute top-full left-1/2 -translate-x-1/2 mt-2 w-[250px] glass-effect rounded-card p-6 shadow-2xl">
+          <ul class="space-y-3">
+            <li><a class="text-on-surface hover:text-sulfur text-sm transition-colors block" href="#">Contact Portal</a></li>
+            <li><a class="text-on-surface hover:text-sulfur text-sm transition-colors block" href="#">Privacy Notice</a></li>
+            <li><a class="text-on-surface hover:text-sulfur text-sm transition-colors block" href="#">Vendor DPAs</a></li>
+            <li><a class="text-on-surface hover:text-sulfur text-sm transition-colors block" href="#">Grievance Redressal</a></li>
+          </ul>
+        </div>
+      </div>
+
+    </div>
+<button class="bg-sulfur text-black px-6 py-2.5 rounded-full font-label-sm text-sm font-bold active:scale-95 transition-transform">
+                Get Started
+            </button>
+</div>
+</nav>
+<main class="pt-32 pb-24 px-6 max-w-7xl mx-auto">
+<div class="bento-grid">
+<!-- Hero Block (2x2) -->
+<section class="col-span-1 md:col-span-2 lg:col-span-2 lg:row-span-2 glass-effect rounded-[24px] p-8 md:p-12 relative overflow-hidden flex flex-col justify-between min-h-[500px]">
+<div class="relative z-10">
+<div class="inline-flex items-center px-3 py-1 rounded-full glass-effect mb-6 border border-white/20">
+<span class="w-2 h-2 bg-sulfur rounded-full mr-2 animate-pulse"></span>
+<span class="text-xs font-label-sm uppercase tracking-tighter">Available for new work</span>
+</div>
+<h1 class="font-headline-lg text-headline-lg lg:text-[64px] tracking-tight leading-[0.9] mb-8">
+                        Everything web.<br/> we do.
+                    </h1>
+<p class="text-on-surface-variant max-w-md text-lg font-body-lg mb-10">
+                        Crafting high-performance digital ecosystems through meticulous engineering and experimental design.
+                    </p>
+<button class="bg-sulfur text-black px-8 py-4 rounded-xl font-headline-md text-lg font-bold hover:shadow-[0_0_30px_rgba(252,253,149,0.3)] transition-all active:scale-95">
+                        Launch Project
+                    </button>
+</div>
+<div class="absolute inset-0 opacity-20 pointer-events-none">
+
+</div>
+</section>
+<!-- Bento Card: Kriya Web (2x1) -->
+<div class="col-span-1 md:col-span-2 lg:col-span-2 glass-effect rounded-card p-8 flex flex-col justify-end group glass-hover min-h-[240px] relative overflow-hidden">
+<div class="relative z-10">
+<span class="material-symbols-outlined text-sulfur text-4xl mb-4">bolt</span>
+<h3 class="font-headline-md text-headline-md mb-2">Kriya Web</h3>
+<p class="text-on-surface-variant text-sm">Engineered for sub-second latency and extreme visual fidelity. We build the future of the browser.</p>
+</div>
+<div class="absolute top-0 right-0 p-8 opacity-10 group-hover:opacity-20 transition-opacity">
+<span class="material-symbols-outlined text-[120px]">public</span>
+</div>
+</div>
+<!-- Bento Card: Kriya AI (2x1) -->
+<div class="col-span-1 md:col-span-2 lg:col-span-2 glass-effect rounded-card p-8 group glass-hover flex flex-col justify-between min-h-[240px]">
+<span class="material-symbols-outlined text-sulfur text-4xl">neurology</span>
+<div>
+<h3 class="font-headline-md text-headline-md mb-2">Kriya AI</h3>
+<p class="text-on-surface-variant text-sm">Custom neural frameworks integrated directly into your workflow.</p>
+</div>
+</div>
+
+<!-- Bento Card: Secondary Info (2x1) -->
+<div class="col-span-1 md:col-span-2 lg:col-span-2 glass-effect rounded-card p-10 flex items-center justify-between gap-8 group">
+<div class="flex-1">
+<h3 class="font-headline-md text-headline-md mb-4">The Infrastructure for Complexity.</h3>
+<p class="text-on-surface-variant text-base">We don't just build sites; we architect digital infrastructure that scales horizontally with your ambitions.</p>
+</div>
+<div class="w-32 h-32 rounded-full glass-effect flex items-center justify-center border border-sulfur/30 group-hover:rotate-12 transition-transform">
+<span class="material-symbols-outlined text-sulfur text-5xl">deployed_code</span>
+</div>
+</div>
+<!-- Bento Card: Decorative Image (2x2) -->
+<div class="col-span-1 md:col-span-2 lg:col-span-2 lg:row-span-2 rounded-[24px] overflow-hidden relative min-h-[400px]">
+<img class="w-full h-full object-cover grayscale contrast-125 hover:grayscale-0 transition-all duration-700" data-alt="A macro shot of a sleek, futuristic circuit board with glowing Electric Sulfur yellow pathways against a deep charcoal metallic surface. The scene is shot with high-key contrast and cinematic lighting, highlighting the precision of the technical components. The mood is industrial, sophisticated, and hyper-modern, fitting a high-end command center aesthetic." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCaXc4DOA02h_KEjge7Wsd-MvJstg9pVIe_Wyz_x5TTthT8qLhUIF0WegA9OV0rE7W1bpsNjuFdtLhoXNtNTrtPtEOAKpLOoOtgGq9p3zDMRjNoA7bdkhabPtmN0EkU-Hm6S1DTRB37G88CoZfp9QVCOCRGNOiX15wKkHWc4YJUv7grWRPNxiombBChievuS3WOMpJLweiFHiJID--MXb1_19c8hio-yQ9PKmF3UqnYFf2dQqmaDjEt25to6f_2oItMCemLTnLS_IFl"/>
+<div class="absolute inset-0 bg-gradient-to-t from-[#131313] via-transparent to-transparent"></div>
+<div class="absolute bottom-0 left-0 p-8">
+<h4 class="font-headline-md text-2xl">Precision at Scale</h4>
+<p class="text-on-surface-variant text-sm">Industrial-grade cyber solutions for the modern age.</p>
+</div>
+</div>
+</div>
+</main>
+<!-- Footer -->
+<footer class="w-full py-12 bg-surface-container-lowest border-t border-outline-variant">
+<div class="flex flex-col md:flex-row justify-between items-center px-8 max-w-7xl mx-auto gap-8">
+<div class="flex flex-col gap-2">
+<div class="font-display text-xl font-bold text-primary">Kriya</div>
+<p class="font-body text-sm text-on-surface-variant">© 2024 Kriya Industrial-Cyber. All rights reserved.</p>
+</div>
+<div class="flex gap-8">
+<a class="text-on-surface-variant hover:text-primary transition-colors text-sm font-body" href="#">Privacy</a>
+<a class="text-on-surface-variant hover:text-primary transition-colors text-sm font-body" href="#">Terms</a>
+<a class="text-on-surface-variant hover:text-primary transition-colors text-sm font-body" href="#">LinkedIn</a>
+<a class="text-on-surface-variant hover:text-primary transition-colors text-sm font-body" href="#">Twitter</a>
+</div>
+</div>
+</footer>
+<script>
+        // Micro-interaction for buttons
+        document.querySelectorAll('button').forEach(button => {
+            button.addEventListener('mousedown', () => {
+                button.classList.add('scale-95');
+            });
+            button.addEventListener('mouseup', () => {
+                button.classList.remove('scale-95');
+            });
+            button.addEventListener('mouseleave', () => {
+                button.classList.remove('scale-95');
+            });
+        });
+
+        // Simple scroll reveal
+        const observerOptions = {
+            threshold: 0.1
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.opacity = '1';
+                    entry.target.style.transform = 'translateY(0)';
+                }
+            });
+        }, observerOptions);
+
+        document.querySelectorAll('.glass-effect').forEach(el => {
+            el.style.opacity = '0';
+            el.style.transform = 'translateY(20px)';
+            el.style.transition = 'all 0.6s cubic-bezier(0.22, 1, 0.36, 1)';
+            observer.observe(el);
+        });
+    </script>
+</body></html>
