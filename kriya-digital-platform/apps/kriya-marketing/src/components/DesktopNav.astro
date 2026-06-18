@@ -2,86 +2,90 @@
 ---
 
 <nav class="fixed top-0 w-full z-50 bg-[#131313]/10 backdrop-blur-md border-b border-white/10 shadow-xl hidden md:block">
-  <div class="flex justify-between items-center px-6 py-4 max-w-7xl mx-auto">
-    <div class="font-headline-lg text-2xl font-black tracking-tighter text-primary">Kriya</div>
-    <div class="flex items-center space-x-8">
+  <div class="grid grid-cols-3 items-center px-6 py-4 max-w-7xl mx-auto relative">
+    <div class="flex justify-start">
+      <a href="/" class="font-headline-lg text-2xl font-black tracking-tighter text-primary block cursor-pointer">
+        <img src="/logos/kriya-logo-white.png" alt="Kriya" class="h-8 w-auto" />
+      </a>
+    </div>
+    <div class="flex items-center justify-center space-x-8">
       
       <!-- Solutions Mega Menu -->
-      <div class="group relative py-2">
-        <button class="font-body-lg text-sm text-on-surface-variant hover:text-primary transition-colors duration-300 flex items-center gap-1">
-          Solutions <span class="material-symbols-outlined text-[18px]">expand_more</span>
-        </button>
-        <div class="opacity-0 pointer-events-none group-hover:opacity-100 group-hover:pointer-events-auto absolute top-full left-1/2 -translate-x-1/2 mt-2 w-[600px] bg-[#131313]/80 backdrop-blur-md border border-white/10 rounded-2xl p-6 grid grid-cols-3 gap-6 shadow-2xl transition-all duration-300 transform -translate-y-2 group-hover:translate-y-0">
-          <div>
-            <p class="text-electric-sulfur font-label-sm text-[10px] uppercase tracking-widest mb-4">Build</p>
-            <ul class="space-y-3">
-              <li><a class="text-white hover:text-electric-sulfur text-sm transition-colors block" href="/solutions/build/web">Kriya Web</a></li>
-              <li><a class="text-white hover:text-electric-sulfur text-sm transition-colors block" href="/solutions/build/app">Kriya App</a></li>
-              <li><a class="text-white hover:text-electric-sulfur text-sm transition-colors block" href="/solutions/build/ui-ux">Kriya UI/UX</a></li>
-            </ul>
-          </div>
-          <div>
-            <p class="text-electric-sulfur font-label-sm text-[10px] uppercase tracking-widest mb-4">Scale</p>
-            <ul class="space-y-3">
-              <li><a class="text-white hover:text-electric-sulfur text-sm transition-colors block" href="/solutions/scale/growth">Kriya Growth</a></li>
-              <li><a class="text-white hover:text-electric-sulfur text-sm transition-colors block" href="/solutions/scale/seo">Kriya SEO</a></li>
-              <li><a class="text-white hover:text-electric-sulfur text-sm transition-colors block" href="/solutions/scale/social">Kriya Social</a></li>
-              <li><a class="text-white hover:text-electric-sulfur text-sm transition-colors block" href="/solutions/scale/brand">Kriya Brand</a></li>
-            </ul>
-          </div>
-          <div>
-            <p class="text-electric-sulfur font-label-sm text-[10px] uppercase tracking-widest mb-4">Automate</p>
-            <ul class="space-y-3">
-              <li><a class="text-white hover:text-electric-sulfur text-sm transition-colors block" href="/solutions/automate/ai">Kriya AI</a></li>
-            </ul>
-          </div>
+      <div class="relative py-2 dropdown-container">
+        <div class="font-body-lg text-sm text-on-surface-variant hover:text-primary transition-colors duration-300 flex items-center gap-1">
+          <a href="/solutions" class="hover:text-electric-sulfur">Solutions</a>
+          <button class="dropdown-trigger focus:outline-none flex items-center cursor-pointer">
+            <span class="material-symbols-outlined text-[18px]">expand_more</span>
+          </button>
         </div>
-      </div>
-
-      <!-- Work Menu -->
-      <div class="group relative py-2">
-        <a href="/work" class="font-body-lg text-sm text-on-surface-variant hover:text-primary transition-colors duration-300 flex items-center gap-1">
-          Work <span class="material-symbols-outlined text-[18px]">expand_more</span>
-        </a>
-        <div class="opacity-0 pointer-events-none group-hover:opacity-100 group-hover:pointer-events-auto absolute top-full left-1/2 -translate-x-1/2 mt-2 w-[250px] bg-[#131313]/80 backdrop-blur-md border border-white/10 rounded-2xl p-6 shadow-2xl transition-all duration-300 transform -translate-y-2 group-hover:translate-y-0">
+        <div class="dropdown-menu opacity-0 pointer-events-none absolute top-full left-1/2 -translate-x-1/2 mt-2 w-[250px] bg-[#131313]/80 backdrop-blur-md border border-white/10 rounded-2xl p-6 shadow-2xl transition-all duration-300 transform -translate-y-2">
           <ul class="space-y-3">
-            <li><a class="text-white hover:text-electric-sulfur text-sm transition-colors block" href="/work/case-studies">Case Studies</a></li>
-            <li><a class="text-white hover:text-electric-sulfur text-sm transition-colors block" href="/work/live-demos">Live Demos</a></li>
+            <li><a class="text-white hover:text-electric-sulfur text-sm transition-colors block" href="/solutions/build">Build</a></li>
+            <li><a class="text-white hover:text-electric-sulfur text-sm transition-colors block" href="/solutions/scale">Scale</a></li>
+            <li><a class="text-white hover:text-electric-sulfur text-sm transition-colors block" href="/solutions/automate">Automate</a></li>
           </ul>
         </div>
       </div>
 
-      <!-- Insights Menu -->
-      <div class="group relative py-2">
-        <a href="/insights" class="font-body-lg text-sm text-on-surface-variant hover:text-primary transition-colors duration-300 flex items-center gap-1">
-          Insights <span class="material-symbols-outlined text-[18px]">expand_more</span>
-        </a>
-        <div class="opacity-0 pointer-events-none group-hover:opacity-100 group-hover:pointer-events-auto absolute top-full left-1/2 -translate-x-1/2 mt-2 w-[250px] bg-[#131313]/80 backdrop-blur-md border border-white/10 rounded-2xl p-6 shadow-2xl transition-all duration-300 transform -translate-y-2 group-hover:translate-y-0">
-          <ul class="space-y-3">
-            <li><a class="text-white hover:text-electric-sulfur text-sm transition-colors block" href="/insights/engineering-blog">Engineering Blog</a></li>
-            <li><a class="text-white hover:text-electric-sulfur text-sm transition-colors block" href="/insights/whitepapers">Whitepapers</a></li>
-          </ul>
-        </div>
-      </div>
-      
-      <!-- Corporate Menu -->
-      <div class="group relative py-2">
-        <button class="font-body-lg text-sm text-on-surface-variant hover:text-primary transition-colors duration-300 flex items-center gap-1">
-          Corporate <span class="material-symbols-outlined text-[18px]">expand_more</span>
-        </button>
-        <div class="opacity-0 pointer-events-none group-hover:opacity-100 group-hover:pointer-events-auto absolute top-full left-1/2 -translate-x-1/2 mt-2 w-[250px] bg-[#131313]/80 backdrop-blur-md border border-white/10 rounded-2xl p-6 shadow-2xl transition-all duration-300 transform -translate-y-2 group-hover:translate-y-0">
-          <ul class="space-y-3">
-            <li><a class="text-white hover:text-electric-sulfur text-sm transition-colors block" href="/corporate/contact">Contact Portal</a></li>
-            <li><a class="text-white hover:text-electric-sulfur text-sm transition-colors block" href="/corporate/privacy-notice">Privacy Notice</a></li>
-            <li><a class="text-white hover:text-electric-sulfur text-sm transition-colors block" href="/corporate/dpa">Vendor DPAs</a></li>
-            <li><a class="text-white hover:text-electric-sulfur text-sm transition-colors block" href="/corporate/grievance-redressal">Grievance Redressal</a></li>
-          </ul>
-        </div>
+      <!-- Case Studies Link -->
+      <div class="relative py-2 flex items-center">
+        <a href="/casestudies" class="font-body-lg text-sm text-on-surface-variant hover:text-electric-sulfur transition-colors duration-300">Case Studies</a>
       </div>
 
+
+      <!-- Contact Link -->
+      <div class="relative py-2 flex items-center">
+        <a href="/contact" class="font-body-lg text-sm text-on-surface-variant hover:text-electric-sulfur transition-colors duration-300">Contact</a>
+      </div>
     </div>
-    <button class="bg-electric-sulfur text-black px-6 py-2.5 rounded-full font-label-sm text-sm font-bold active:scale-95 transition-transform">
-      Get Started
-    </button>
+    <div class="flex justify-end">
+      <a href="/solutions" class="inline-block bg-electric-sulfur text-black px-6 py-2.5 rounded-full font-label-sm text-sm font-bold active:scale-95 transition-transform">
+        Start Building
+      </a>
+    </div>
   </div>
 </nav>
+
+<script>
+  // Setup click-to-toggle for navigation dropdowns
+  document.addEventListener('DOMContentLoaded', () => {
+    const dropdownContainers = document.querySelectorAll('.dropdown-container');
+
+    dropdownContainers.forEach(container => {
+      const trigger = container.querySelector('.dropdown-trigger');
+      const menu = container.querySelector('.dropdown-menu');
+
+      if (!trigger || !menu) return;
+
+      trigger.addEventListener('click', (e) => {
+        e.stopPropagation();
+        const isOpen = menu.classList.contains('opacity-100');
+
+        // Close all dropdowns first
+        document.querySelectorAll('.dropdown-menu').forEach(m => {
+          m.classList.remove('opacity-100', 'pointer-events-auto', 'translate-y-0');
+          m.classList.add('opacity-0', 'pointer-events-none', '-translate-y-2');
+        });
+
+        // Toggle current dropdown if it was closed
+        if (!isOpen) {
+          menu.classList.remove('opacity-0', 'pointer-events-none', '-translate-y-2');
+          menu.classList.add('opacity-100', 'pointer-events-auto', 'translate-y-0');
+        }
+      });
+      
+      // Prevent clicks inside the menu from closing it
+      menu.addEventListener('click', (e) => {
+        e.stopPropagation();
+      });
+    });
+
+    // Close dropdowns when clicking anywhere outside
+    document.addEventListener('click', () => {
+      document.querySelectorAll('.dropdown-menu').forEach(m => {
+        m.classList.remove('opacity-100', 'pointer-events-auto', 'translate-y-0');
+        m.classList.add('opacity-0', 'pointer-events-none', '-translate-y-2');
+      });
+    });
+  });
+</script>

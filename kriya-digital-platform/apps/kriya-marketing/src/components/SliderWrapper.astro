@@ -1,0 +1,40 @@
+---
+---
+
+<div class="relative group slider-wrapper w-full">
+  <!-- Left Button -->
+  <button class="absolute left-0 top-1/2 -translate-y-1/2 -translate-x-4 md:-translate-x-6 w-14 h-14 items-center justify-center bg-[#131313]/80 backdrop-blur-md border border-white/10 text-white rounded-full z-20 opacity-0 group-hover:opacity-100 scale-90 group-hover:scale-100 transition-all duration-300 hover:bg-electric-sulfur hover:text-black hover:border-electric-sulfur shadow-2xl slider-btn-left hidden md:flex" aria-label="Scroll left">
+    <span class="material-symbols-outlined text-[28px]">chevron_left</span>
+  </button>
+  
+  <!-- Container for the slots -->
+  <div class="flex overflow-x-auto snap-x snap-mandatory gap-8 pb-8 [scrollbar-width:none] [&::-webkit-scrollbar]:hidden slider-container w-full">
+    <slot />
+  </div>
+
+  <!-- Right Button -->
+  <button class="absolute right-0 top-1/2 -translate-y-1/2 translate-x-4 md:translate-x-6 w-14 h-14 items-center justify-center bg-[#131313]/80 backdrop-blur-md border border-white/10 text-white rounded-full z-20 opacity-0 group-hover:opacity-100 scale-90 group-hover:scale-100 transition-all duration-300 hover:bg-electric-sulfur hover:text-black hover:border-electric-sulfur shadow-2xl slider-btn-right hidden md:flex" aria-label="Scroll right">
+    <span class="material-symbols-outlined text-[28px]">chevron_right</span>
+  </button>
+</div>
+
+<script>
+  document.addEventListener('DOMContentLoaded', () => {
+    const wrappers = document.querySelectorAll('.slider-wrapper');
+    wrappers.forEach(wrapper => {
+      const container = wrapper.querySelector('.slider-container');
+      const leftBtn = wrapper.querySelector('.slider-btn-left');
+      const rightBtn = wrapper.querySelector('.slider-btn-right');
+
+      if(container && leftBtn && rightBtn) {
+        // Scroll amount is roughly one card width
+        leftBtn.addEventListener('click', () => {
+          container.scrollBy({ left: -400, behavior: 'smooth' });
+        });
+        rightBtn.addEventListener('click', () => {
+          container.scrollBy({ left: 400, behavior: 'smooth' });
+        });
+      }
+    });
+  });
+</script>

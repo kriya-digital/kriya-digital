@@ -1,0 +1,30 @@
+---
+import { Image } from 'astro:assets';
+
+export interface Props {
+  title: string;
+  techStack: string;
+  imageContent?: any;
+  altText?: string;
+  href?: string;
+  logoMode?: boolean;
+}
+
+const { title, techStack, imageContent, altText = "", href, logoMode = false } = Astro.props;
+const Element = href ? 'a' : 'div';
+---
+
+<Element href={href} class="bg-[#131313]/5 border border-electric-sulfur/20 rounded-[24px] p-6 flex flex-col group hover:bg-[#131313]/10 hover:border-electric-sulfur/40 transition-all duration-300 backdrop-blur-md block h-full">
+  <div class={`aspect-square rounded-[16px] border border-electric-sulfur/20 mb-8 flex items-center justify-center overflow-hidden relative ${logoMode ? 'bg-white p-12' : 'bg-[#1a1a1a]/50 shadow-[inset_0_0_20px_rgba(255,255,255,0.03)]'}`}>
+    {imageContent ? (
+      <Image alt={altText} class={`object-contain drop-shadow-2xl opacity-90 group-hover:opacity-100 group-hover:scale-105 transition-all duration-500 ${logoMode ? 'w-3/4 h-3/4' : 'w-full h-full'}`} src={imageContent}/>
+    ) : (
+      <!-- 3D Isometric Placeholder -->
+      <div class="w-32 h-32 bg-gradient-to-br from-[#3c3c3c] to-[#131313] rounded-2xl rotate-[15deg] skew-y-[15deg] group-hover:rotate-0 group-hover:skew-y-0 transition-all duration-700 shadow-2xl border border-white/10 relative">
+        <div class="absolute -top-4 -left-4 w-full h-full bg-gradient-to-br from-[#2a2a2a] to-[#0a0a0a] rounded-2xl border border-white/5"></div>
+      </div>
+    )}
+  </div>
+  <h3 class="font-headline-md text-2xl text-white mb-2">{title}</h3>
+  <p class="font-body-lg text-sm text-on-surface-variant">{techStack}</p>
+</Element>

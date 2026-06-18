@@ -1,0 +1,124 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import DesktopNav from '../../components/DesktopNav.astro';
+import MobileCanvas from '../../components/MobileCanvas.tsx';
+import Footer from '../../components/Footer.astro';
+---
+
+<Layout title="Kriya | Notion Case Study">
+  <div class="hidden md:block">
+    <DesktopNav />
+    
+    <div class="px-6 max-w-7xl mx-auto pt-32 pb-24">
+      <!-- Back Link -->
+      <div class="mb-8">
+        <a href="/casestudies" class="inline-flex items-center gap-2 text-sm text-electric-sulfur hover:underline">
+          <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M15 19l-7-7 7-7"></path>
+          </svg>
+          Back to Case Studies
+        </a>
+      </div>
+
+      <section class="mb-16">
+        <span class="bg-electric-sulfur text-black px-3 py-1 rounded-full text-xs font-bold uppercase tracking-widest">Case Study</span>
+        <h1 class="font-headline-lg text-white text-5xl lg:text-[72px] tracking-tight leading-[1] mt-6 mb-6">
+          Notion
+        </h1>
+        <p class="text-on-surface-variant text-xl font-body-lg max-w-3xl leading-relaxed">
+          Optimizing real-time synchronization engines and designing offline-first storage pipelines for collaborative workspace platforms.
+        </p>
+      </section>
+
+      <!-- Key Metrics Row -->
+      <div class="grid grid-cols-2 lg:grid-cols-4 gap-6 mb-16">
+        <div class="bg-[#1a1a1a]/40 border border-white/5 p-6 rounded-2xl text-center">
+          <div class="text-xs text-electric-sulfur uppercase tracking-wider font-bold mb-2">Input Latency</div>
+          <div class="text-3xl lg:text-4xl font-headline-md text-white font-bold">0 ms</div>
+        </div>
+        <div class="bg-[#1a1a1a]/40 border border-white/5 p-6 rounded-2xl text-center">
+          <div class="text-xs text-electric-sulfur uppercase tracking-wider font-bold mb-2">Workspace Conflict</div>
+          <div class="text-3xl lg:text-4xl font-headline-md text-white font-bold">0% Fail</div>
+        </div>
+        <div class="bg-[#1a1a1a]/40 border border-white/5 p-6 rounded-2xl text-center">
+          <div class="text-xs text-electric-sulfur uppercase tracking-wider font-bold mb-2">Offline Synced</div>
+          <div class="text-3xl lg:text-4xl font-headline-md text-white font-bold">Immediate</div>
+        </div>
+        <div class="bg-[#1a1a1a]/40 border border-white/5 p-6 rounded-2xl text-center">
+          <div class="text-xs text-electric-sulfur uppercase tracking-wider font-bold mb-2">Local Write Cache</div>
+          <div class="text-3xl lg:text-4xl font-headline-md text-white font-bold">IndexedDB</div>
+        </div>
+      </div>
+
+      <div class="grid grid-cols-1 lg:grid-cols-3 gap-12 mb-24">
+        <!-- Main Content -->
+        <div class="lg:col-span-2 space-y-12">
+          <!-- The Challenge -->
+          <div class="bg-[#1a1a1a]/50 border border-white/5 rounded-3xl p-8 backdrop-blur-md">
+            <h2 class="font-headline-md text-2xl text-white mb-4">The Challenge</h2>
+            <p class="font-body-lg text-on-surface-variant leading-relaxed mb-4">
+              Collaborative workspaces like Notion require frictionless typing and real-time syncing across multiple distributed clients. When network connectivity fluctuates or dropouts occur, document blocks can easily get out of sync.
+            </p>
+            <p class="font-body-lg text-on-surface-variant leading-relaxed">
+              Notion needed a robust offline-first synchronization strategy that would allow users to edit documents while offline, resolving conflicts automatically and silently on reconnect without breaking block structures or deleting concurrent user additions.
+            </p>
+          </div>
+
+          <!-- The Strategy -->
+          <div class="bg-[#1a1a1a]/50 border border-white/5 rounded-3xl p-8 backdrop-blur-md">
+            <h2 class="font-headline-md text-2xl text-white mb-4">Our Strategy & Architectural Solution</h2>
+            <p class="font-body-lg text-on-surface-variant leading-relaxed mb-6">
+              Our development team implemented a high-performance offline-first sync cycle:
+            </p>
+            
+            <div class="space-y-6">
+              <div>
+                <h4 class="text-white font-semibold mb-2">1. Conflict-Free Replicated Data Types (CRDTs)</h4>
+                <p class="text-on-surface-variant text-sm leading-relaxed">
+                  Decoupled workspace sync from operational transformation servers. Using Yjs library CRDT structures, each document block maintains a unique logical identity, enabling users to concurrently insert characters or move blocks without data collision.
+                </p>
+              </div>
+              <div>
+                <h4 class="text-white font-semibold mb-2">2. Local Cache Write-Back with IndexedDB</h4>
+                <p class="text-on-surface-variant text-sm leading-relaxed">
+                  Configured an IndexedDB persistent caching layer. All document block writes are instantly saved locally. Page load times are cut to zero on launch as the app displays the local database state before initializing WebSocket updates.
+                </p>
+              </div>
+              <div>
+                <h4 class="text-white font-semibold mb-2">3. Background Delta Synchronization</h4>
+                <p class="text-on-surface-variant text-sm leading-relaxed">
+                  Engineered a delta sync queue that monitors system connectivity. When connection transitions from offline to online, only the binary compressed difference packets are transmitted, preserving bandwidth on weak connections.
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Tech Details / Metrics -->
+        <div class="space-y-8">
+          <div class="bg-[#1a1a1a]/50 border border-white/5 rounded-3xl p-8 backdrop-blur-md">
+            <h3 class="font-headline-md text-xl text-white mb-4">Core Technology Stack</h3>
+            <ul class="space-y-3 text-sm text-on-surface-variant font-body-lg">
+              <li class="flex items-center gap-2"><span class="w-1.5 h-1.5 rounded-full bg-electric-sulfur"></span> Yjs Collaborative Library</li>
+              <li class="flex items-center gap-2"><span class="w-1.5 h-1.5 rounded-full bg-electric-sulfur"></span> IndexedDB Local Caching</li>
+              <li class="flex items-center gap-2"><span class="w-1.5 h-1.5 rounded-full bg-electric-sulfur"></span> WebSockets for Live Broadcast</li>
+              <li class="flex items-center gap-2"><span class="w-1.5 h-1.5 rounded-full bg-electric-sulfur"></span> Node.js Hub Sync Servers</li>
+              <li class="flex items-center gap-2"><span class="w-1.5 h-1.5 rounded-full bg-electric-sulfur"></span> TypeScript & React Context State</li>
+            </ul>
+          </div>
+
+          <div class="bg-[#1a1a1a]/50 border border-white/5 rounded-3xl p-8 backdrop-blur-md">
+            <h3 class="font-headline-md text-xl text-white mb-4">Engineering Takeaways</h3>
+            <p class="text-sm text-on-surface-variant leading-relaxed">
+              Prioritizing IndexedDB storage over network requests creates a highly reliable application feeling. By coupling local-first storage with Yjs-based conflict resolution, collaborative sync scales with zero server transaction overhead.
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+    
+    <Footer />
+  </div>
+
+  <MobileCanvas client:load />
+</Layout>

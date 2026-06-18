@@ -1,92 +1,239 @@
 ---
+import reactLogo from "../assets/react.svg";
+import flutterLogo from "../assets/flutter.svg";
+import figmaLogo from "../assets/figma.svg";
+import googleadsLogo from "../assets/googleads.svg";
+import metaLogo from "../assets/meta.svg";
+import googlesearchconsoleLogo from "../assets/googlesearchconsole.svg";
+import openaiLogo from "../assets/openai.svg";
+import whatsappLogo from "../assets/whatsapp.svg";
+
+import zomatoLogo from "../assets/zomato-brand-logo.svg";
+import uberLogo from "../assets/uber-brand-logo.svg";
+import notionLogo from "../assets/notion-brand-logo.svg";
+import netflixLogo from "../assets/netflix-brand-logo.svg";
 ---
 
 <div class="hidden md:grid md:grid-cols-2 lg:grid-cols-4 gap-6 px-6 max-w-7xl mx-auto pt-32 pb-24">
-  <!-- Block 1: The Anchor (2x2) -->
-  <section class="col-span-1 md:col-span-2 lg:col-span-2 lg:row-span-2 bg-[#131313]/5 backdrop-blur-md border border-white/10 rounded-[24px] p-8 md:p-12 relative overflow-hidden flex flex-col justify-between min-h-[500px]">
-    <div class="relative z-10">
-      <div class="inline-flex items-center px-3 py-1 rounded-full bg-[#131313]/5 backdrop-blur-md mb-6 border border-white/20">
+  <!-- Block 1: The Anchor (Hero Page, Full Width) -->
+  <section class="col-span-1 md:col-span-2 lg:col-span-4 bg-[#131313]/5 backdrop-blur-md border border-white/10 rounded-[24px] p-8 md:p-16 relative overflow-hidden flex flex-col justify-center min-h-[60vh]">
+    <div class="relative z-10 max-w-3xl">
+      <div class="inline-flex items-center px-3 py-1 rounded-full bg-[#131313]/5 backdrop-blur-md mb-8 border border-white/20">
         <span class="w-2 h-2 bg-electric-sulfur rounded-full mr-2 animate-pulse"></span>
-        <span class="text-xs font-label-sm uppercase tracking-tighter text-white">Agency Core</span>
+        <span class="text-xs font-label-sm uppercase tracking-tighter text-white">WEB ARCHITECTURE</span>
       </div>
-      <h1 class="font-headline-lg text-white text-4xl lg:text-[64px] tracking-tight leading-[0.9] mb-8">
-        Everything web.<br/> we do.
+      <h1 class="font-headline-lg text-white text-5xl md:text-[80px] tracking-tight leading-[0.85] mb-8">
+        Everything web.<br/> <span class="text-electric-sulfur">we do.</span>
       </h1>
-      <p class="text-on-surface-variant max-w-md text-lg font-body-lg mb-10">
-        We build hyper-optimized, zero-JS marketing platforms and scalable, interactive web applications for elite brands.
+      <p class="text-on-surface-variant text-sm md:text-base font-body-lg mb-10 max-w-lg leading-relaxed">
+        We architect and engineer high-performance web ecosystems. From high-converting marketing platforms to complex, scalable digital products, we bridge the gap between elite design and robust infrastructure.
       </p>
-      <button class="bg-electric-sulfur text-black px-8 py-4 rounded-xl font-headline-md text-lg font-bold hover:shadow-[0_0_30px_rgba(252,253,149,0.3)] transition-all active:scale-95">
-        Start a Project
-      </button>
+      <a href="/solutions" class="inline-block bg-electric-sulfur text-black px-10 py-5 rounded-xl font-headline-md text-lg font-bold hover:shadow-[0_0_40px_rgba(252,253,149,0.4)] transition-all active:scale-95 w-max">
+        Start Building
+      </a>
+    </div>
+    <!-- Soft background glow for hero (reduced intensity) -->
+    <div class="absolute right-0 top-0 w-[450px] h-[450px] bg-electric-sulfur/5 rounded-full blur-[130px] pointer-events-none z-0"></div>
+
+    <!-- Floating Icons Area (visible on large screens only) -->
+    <div class="hidden lg:block absolute right-12 top-0 bottom-0 w-[45%] pointer-events-none z-0">
+      <!-- React -->
+      <div class="absolute left-[15%] top-[12%] animate-float-slow bg-white/5 border border-white/10 rounded-full p-3 shadow-lg backdrop-blur-[2px]">
+        <img src="https://cdn.simpleicons.org/react/61DAFB" class="w-6 h-6 object-contain" alt="React" />
+      </div>
+      <!-- Tailwind -->
+      <div class="absolute left-[45%] top-[20%] animate-float-medium bg-white/5 border border-white/10 rounded-full p-3 shadow-lg backdrop-blur-[2px]" style="animation-delay: 1s;">
+        <img src="https://cdn.simpleicons.org/tailwindcss/06B6D4" class="w-6 h-6 object-contain" alt="Tailwind CSS" />
+      </div>
+      <!-- Astro -->
+      <div class="absolute left-[70%] top-[10%] animate-float-fast bg-white/5 border border-white/10 rounded-full p-3 shadow-lg backdrop-blur-[2px]" style="animation-delay: 2s;">
+        <img src="https://cdn.simpleicons.org/astro/FF5D01" class="w-6 h-6 object-contain" alt="Astro" />
+      </div>
+      <!-- NextJS -->
+      <div class="absolute left-[5%] top-[42%] animate-float-medium bg-white/5 border border-white/10 rounded-full p-3 shadow-lg backdrop-blur-[2px]" style="animation-delay: 1.5s;">
+        <img src="https://cdn.simpleicons.org/nextdotjs/ffffff" class="w-6 h-6 object-contain" alt="Next.js" />
+      </div>
+      <!-- Figma -->
+      <div class="absolute left-[35%] top-[48%] animate-float-slow bg-white/5 border border-white/10 rounded-full p-3 shadow-lg backdrop-blur-[2px]" style="animation-delay: 0.5s;">
+        <img src="https://cdn.simpleicons.org/figma/F24E1E" class="w-6 h-6 object-contain" alt="Figma" />
+      </div>
+      <!-- Flutter -->
+      <div class="absolute left-[65%] top-[40%] animate-float-fast bg-white/5 border border-white/10 rounded-full p-3 shadow-lg backdrop-blur-[2px]" style="animation-delay: 2.5s;">
+        <img src="https://cdn.simpleicons.org/flutter/02569B" class="w-6 h-6 object-contain" alt="Flutter" />
+      </div>
+      <!-- Antigravity -->
+      <div class="absolute left-[20%] top-[75%] animate-float-fast bg-white/5 border border-white/10 rounded-full p-3 shadow-lg backdrop-blur-[2px] flex items-center justify-center" style="animation-delay: 3s;">
+        <svg class="w-6 h-6 text-electric-sulfur" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <circle cx="12" cy="12" r="4" fill="currentColor" fill-opacity="0.2"/>
+          <ellipse cx="12" cy="12" rx="9" ry="3" transform="rotate(-30 12 12)"/>
+          <ellipse cx="12" cy="12" rx="9" ry="3" transform="rotate(30 12 12)"/>
+        </svg>
+      </div>
+      <!-- Framer -->
+      <div class="absolute left-[50%] top-[72%] animate-float-slow bg-white/5 border border-white/10 rounded-full p-3 shadow-lg backdrop-blur-[2px]" style="animation-delay: 1.2s;">
+        <img src="https://cdn.simpleicons.org/framer/0055FF" class="w-6 h-6 object-contain" alt="Framer" />
+      </div>
+      <!-- Meta -->
+      <div class="absolute left-[78%] top-[68%] animate-float-medium bg-white/5 border border-white/10 rounded-full p-3 shadow-lg backdrop-blur-[2px]" style="animation-delay: 0.8s;">
+        <img src="https://cdn.simpleicons.org/meta/044DE0" class="w-6 h-6 object-contain" alt="Meta" />
+      </div>
     </div>
   </section>
 
-  <!-- Block 2: The Arsenal (2x1) -->
-  <div class="col-span-1 md:col-span-2 lg:col-span-2 bg-[#131313]/5 backdrop-blur-md border border-white/10 rounded-[16px] p-8 flex flex-col justify-between min-h-[240px] relative overflow-hidden group hover:bg-[#131313]/10 transition-all duration-300">
-    <div class="relative z-10 flex flex-col h-full">
-      <h3 class="font-headline-md text-2xl text-white mb-6">The Arsenal</h3>
-      <div class="flex-1 flex items-center overflow-hidden w-full relative">
-        <div class="flex gap-8 whitespace-nowrap animate-marquee">
-          <span class="font-body-lg text-electric-sulfur font-bold text-xl tracking-wide opacity-80 hover:opacity-100 transition-opacity">Astro</span>
-          <span class="font-body-lg text-white font-bold text-xl tracking-wide opacity-80 hover:opacity-100 transition-opacity">Next.js</span>
-          <span class="font-body-lg text-white font-bold text-xl tracking-wide opacity-80 hover:opacity-100 transition-opacity">Sanity CMS</span>
-          <span class="font-body-lg text-white font-bold text-xl tracking-wide opacity-80 hover:opacity-100 transition-opacity">TypeScript</span>
-          <span class="font-body-lg text-white font-bold text-xl tracking-wide opacity-80 hover:opacity-100 transition-opacity">Tailwind CSS</span>
-        </div>
+  <!-- Block 2: Solutions (2x1) -->
+  <div class="col-span-1 md:col-span-2 lg:col-span-2 bg-[#131313]/5 backdrop-blur-md border border-white/10 rounded-[24px] p-6 md:p-8 flex flex-col justify-between min-h-[290px] relative overflow-hidden group hover:bg-[#131313]/10 transition-all duration-300">
+    <div class="relative z-10 flex flex-col h-full justify-between">
+      <div class="flex justify-between items-center mb-6">
+        <a href="/solutions" class="font-headline-md text-2xl text-white hover:text-electric-sulfur transition-colors inline-flex items-center gap-2 group/title">
+          Our Solutions <span class="material-symbols-outlined text-xl opacity-0 group-hover/title:opacity-100 group-hover/title:translate-x-1 transition-all">arrow_forward</span>
+        </a>
       </div>
-    </div>
-  </div>
-
-  <!-- Block 3: Featured Case Study (1x1) -->
-  <div class="col-span-1 lg:col-span-1 bg-[#3c3c3c] border border-white/10 rounded-[16px] group relative overflow-hidden min-h-[240px]">
-    <!-- High Contrast Gradient/Placeholder -->
-    <div class="absolute inset-0 bg-gradient-to-br from-[#131313] to-[#3c3c3c] z-0 transition-transform duration-700 group-hover:scale-105"></div>
-    <div class="absolute inset-0 z-10 flex flex-col justify-between p-6">
-      <h3 class="font-label-sm text-electric-sulfur uppercase tracking-widest text-xs">Featured Work</h3>
       
-      <!-- Glassmorphism Overlay -->
-      <div class="bg-[#131313]/40 backdrop-blur-md border border-white/10 rounded-xl p-4 mt-auto">
-        <p class="font-headline-md text-white text-lg leading-tight">Enterprise Replatforming: <span class="text-electric-sulfur">40% Increase</span> in Core Web Vitals.</p>
+      <!-- Symmetrical Grid -->
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
+        <!-- Build -->
+        <a href="/solutions/build" class="flex flex-col justify-between p-5 rounded-2xl bg-white/5 border border-white/5 hover:border-electric-sulfur/50 hover:bg-white/[0.08] hover:-translate-y-1 transition-all group/pillar min-h-[140px]">
+          <div>
+            <div class="flex justify-between items-start mb-3">
+              <span class="material-symbols-outlined text-electric-sulfur text-2xl">architecture</span>
+              <!-- Tech icons preview -->
+              <div class="flex gap-1 opacity-60 group-hover/pillar:opacity-100 transition-opacity">
+                <img src={reactLogo.src} class="w-4 h-4 object-contain bg-white rounded p-0.5" alt="React" />
+                <img src={flutterLogo.src} class="w-4 h-4 object-contain bg-white rounded p-0.5" alt="Flutter" />
+                <img src={figmaLogo.src} class="w-4 h-4 object-contain bg-white rounded p-0.5" alt="Figma" />
+              </div>
+            </div>
+            <span class="font-body-lg text-white text-base font-semibold block mb-1">Build</span>
+            <span class="text-xs text-on-surface-variant font-body-lg leading-relaxed group-hover/pillar:text-white transition-colors">Web • App • UI/UX</span>
+          </div>
+        </a>
+
+        <!-- Scale -->
+        <a href="/solutions/scale" class="flex flex-col justify-between p-5 rounded-2xl bg-white/5 border border-white/5 hover:border-electric-sulfur/50 hover:bg-white/[0.08] hover:-translate-y-1 transition-all group/pillar min-h-[140px]">
+          <div>
+            <div class="flex justify-between items-start mb-3">
+              <span class="material-symbols-outlined text-electric-sulfur text-2xl">trending_up</span>
+              <!-- Tech icons preview -->
+              <div class="flex gap-1 opacity-60 group-hover/pillar:opacity-100 transition-opacity">
+                <img src={googleadsLogo.src} class="w-4 h-4 object-contain bg-white rounded p-0.5" alt="Google Ads" />
+                <img src={metaLogo.src} class="w-4 h-4 object-contain bg-white rounded p-0.5" alt="Meta Ads" />
+                <img src={googlesearchconsoleLogo.src} class="w-4 h-4 object-contain bg-white rounded p-0.5" alt="GSC" />
+              </div>
+            </div>
+            <span class="font-body-lg text-white text-base font-semibold block mb-1">Scale</span>
+            <span class="text-xs text-on-surface-variant font-body-lg leading-relaxed group-hover/pillar:text-white transition-colors">SEO • Ads • Brand</span>
+          </div>
+        </a>
+
+        <!-- Automate -->
+        <a href="/solutions/automate" class="flex flex-col justify-between p-5 rounded-2xl bg-white/5 border border-white/5 hover:border-electric-sulfur/50 hover:bg-white/[0.08] hover:-translate-y-1 transition-all group/pillar min-h-[140px]">
+          <div>
+            <div class="flex justify-between items-start mb-3">
+              <span class="material-symbols-outlined text-electric-sulfur text-2xl">neurology</span>
+              <!-- Tech icons preview -->
+              <div class="flex gap-1 opacity-60 group-hover/pillar:opacity-100 transition-opacity">
+                <img src={openaiLogo.src} class="w-4 h-4 object-contain bg-white rounded p-0.5" alt="OpenAI" />
+                <img src={whatsappLogo.src} class="w-4 h-4 object-contain bg-white rounded p-0.5" alt="WhatsApp" />
+              </div>
+            </div>
+            <span class="font-body-lg text-white text-base font-semibold block mb-1">Automate</span>
+            <span class="text-xs text-on-surface-variant font-body-lg leading-relaxed group-hover/pillar:text-white transition-colors">AI • WhatsApp</span>
+          </div>
+        </a>
       </div>
     </div>
   </div>
 
-  <!-- Block 4: Core Services Matrix (1x1) -->
-  <div class="col-span-1 lg:col-span-1 bg-[#131313]/5 backdrop-blur-md border border-white/10 rounded-[16px] p-6 flex flex-col justify-between min-h-[240px] hover:bg-[#131313]/10 transition-all duration-300">
-    <h3 class="font-headline-md text-2xl text-white mb-4">Our Pillars</h3>
-    <ul class="space-y-4 font-body-lg text-sm text-on-surface-variant">
-      <li class="flex items-start">
-        <span class="material-symbols-outlined text-electric-sulfur text-lg mr-2">build</span>
-        <div>
-          <strong class="text-white block font-medium">Build</strong>
-          <span>High-Performance Architecture</span>
-        </div>
-      </li>
-      <li class="flex items-start">
-        <span class="material-symbols-outlined text-electric-sulfur text-lg mr-2">trending_up</span>
-        <div>
-          <strong class="text-white block font-medium">Scale</strong>
-          <span>SEO & Growth Engineering</span>
-        </div>
-      </li>
-      <li class="flex items-start">
-        <span class="material-symbols-outlined text-electric-sulfur text-lg mr-2">smart_toy</span>
-        <div>
-          <strong class="text-white block font-medium">Automate</strong>
-          <span>AI & Workflow Integration</span>
-        </div>
-      </li>
-    </ul>
-  </div>
+  <!-- Block 3: Case Studies (2x1) -->
+  <div class="col-span-1 md:col-span-2 lg:col-span-2 bg-[#131313]/5 backdrop-blur-md border border-white/10 rounded-[24px] p-6 md:p-8 flex flex-col justify-between min-h-[290px] relative overflow-hidden group hover:bg-[#131313]/10 transition-all duration-300">
+    <div class="relative z-10 flex flex-col h-full justify-between">
+      <div class="flex justify-between items-center mb-6">
+        <a href="/casestudies" class="font-headline-md text-2xl text-white hover:text-electric-sulfur transition-colors inline-flex items-center gap-2 group/title">
+          Case Studies <span class="material-symbols-outlined text-xl opacity-0 group-hover/title:opacity-100 group-hover/title:translate-x-1 transition-all">arrow_forward</span>
+        </a>
+      </div>
+      
+      <!-- Symmetrical Grid -->
+      <div class="grid grid-cols-2 md:grid-cols-4 gap-4">
+        <!-- Zomato -->
+        <a href="/casestudies/zomato" class="flex flex-col justify-between p-4 rounded-2xl bg-white/5 border border-white/5 hover:border-electric-sulfur/50 hover:bg-white/[0.08] hover:-translate-y-1 transition-all group/cs min-h-[140px]">
+          <div>
+            <div class="flex justify-between items-start mb-3">
+              <div class="w-10 h-10 bg-white rounded-lg flex items-center justify-center p-1.5">
+                <img src={zomatoLogo.src} class="w-full h-full object-contain" alt="Zomato" />
+              </div>
+            </div>
+            <span class="font-body-lg text-white text-sm font-semibold block mb-1">Zomato</span>
+            <span class="text-[10px] text-on-surface-variant font-body-lg leading-tight block group-hover/cs:text-white transition-colors">Checkout Funnel<br/>-42% Latency</span>
+          </div>
+        </a>
 
+        <!-- Uber -->
+        <a href="/casestudies/uber" class="flex flex-col justify-between p-4 rounded-2xl bg-white/5 border border-white/5 hover:border-electric-sulfur/50 hover:bg-white/[0.08] hover:-translate-y-1 transition-all group/cs min-h-[140px]">
+          <div>
+            <div class="flex justify-between items-start mb-3">
+              <div class="w-10 h-10 bg-white rounded-lg flex items-center justify-center p-1.5">
+                <img src={uberLogo.src} class="w-full h-full object-contain" alt="Uber" />
+              </div>
+            </div>
+            <span class="font-body-lg text-white text-sm font-semibold block mb-1">Uber</span>
+            <span class="text-[10px] text-on-surface-variant font-body-lg leading-tight block group-hover/cs:text-white transition-colors">Map Layer<br/>-60% CPU</span>
+          </div>
+        </a>
+
+        <!-- Notion -->
+        <a href="/casestudies/notion" class="flex flex-col justify-between p-4 rounded-2xl bg-white/5 border border-white/5 hover:border-electric-sulfur/50 hover:bg-white/[0.08] hover:-translate-y-1 transition-all group/cs min-h-[140px]">
+          <div>
+            <div class="flex justify-between items-start mb-3">
+              <div class="w-10 h-10 bg-white rounded-lg flex items-center justify-center p-1.5">
+                <img src={notionLogo.src} class="w-full h-full object-contain" alt="Notion" />
+              </div>
+            </div>
+            <span class="font-body-lg text-white text-sm font-semibold block mb-1">Notion</span>
+            <span class="text-[10px] text-on-surface-variant font-body-lg leading-tight block group-hover/cs:text-white transition-colors">Collaboration<br/>Offline-First</span>
+          </div>
+        </a>
+
+        <!-- Netflix -->
+        <a href="/casestudies/netflix" class="flex flex-col justify-between p-4 rounded-2xl bg-white/5 border border-white/5 hover:border-electric-sulfur/50 hover:bg-white/[0.08] hover:-translate-y-1 transition-all group/cs min-h-[140px]">
+          <div>
+            <div class="flex justify-between items-start mb-3">
+              <div class="w-10 h-10 bg-white rounded-lg flex items-center justify-center p-1.5">
+                <img src={netflixLogo.src} class="w-full h-full object-contain" alt="Netflix" />
+              </div>
+            </div>
+            <span class="font-body-lg text-white text-sm font-semibold block mb-1">Netflix</span>
+            <span class="text-[10px] text-on-surface-variant font-body-lg leading-tight block group-hover/cs:text-white transition-colors">Pre-fetching<br/>Edge Optimization</span>
+          </div>
+        </a>
+      </div>
+    </div>
+  </div>
 </div>
 
 <style>
-  @keyframes marquee {
-    0% { transform: translateX(100%); }
-    100% { transform: translateX(-100%); }
+  @keyframes float-1 {
+    0%, 100% { transform: translateY(0px) rotate(0deg); }
+    50% { transform: translateY(-15px) rotate(3deg); }
   }
-  .animate-marquee {
-    animation: marquee 15s linear infinite;
+  @keyframes float-2 {
+    0%, 100% { transform: translateY(0px) rotate(0deg); }
+    50% { transform: translateY(-12px) rotate(-4deg); }
+  }
+  @keyframes float-3 {
+    0%, 100% { transform: translateY(0px) rotate(0deg); }
+    50% { transform: translateY(-8px) rotate(2deg); }
+  }
+  
+  .animate-float-slow {
+    animation: float-1 8s ease-in-out infinite;
+  }
+  .animate-float-medium {
+    animation: float-2 6s ease-in-out infinite;
+  }
+  .animate-float-fast {
+    animation: float-3 5s ease-in-out infinite;
   }
 </style>
+
+

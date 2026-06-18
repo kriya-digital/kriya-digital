@@ -1,0 +1,124 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import DesktopNav from '../../components/DesktopNav.astro';
+import MobileCanvas from '../../components/MobileCanvas.tsx';
+import Footer from '../../components/Footer.astro';
+---
+
+<Layout title="Kriya | Uber Case Study">
+  <div class="hidden md:block">
+    <DesktopNav />
+    
+    <div class="px-6 max-w-7xl mx-auto pt-32 pb-24">
+      <!-- Back Link -->
+      <div class="mb-8">
+        <a href="/casestudies" class="inline-flex items-center gap-2 text-sm text-electric-sulfur hover:underline">
+          <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M15 19l-7-7 7-7"></path>
+          </svg>
+          Back to Case Studies
+        </a>
+      </div>
+
+      <section class="mb-16">
+        <span class="bg-electric-sulfur text-black px-3 py-1 rounded-full text-xs font-bold uppercase tracking-widest">Case Study</span>
+        <h1 class="font-headline-lg text-white text-5xl lg:text-[72px] tracking-tight leading-[1] mt-6 mb-6">
+          Uber
+        </h1>
+        <p class="text-on-surface-variant text-xl font-body-lg max-w-3xl leading-relaxed">
+          Optimizing map coordinate rendering engines to support low-latency high-frequency coordinate tracking with minimal battery overhead.
+        </p>
+      </section>
+
+      <!-- Key Metrics Row -->
+      <div class="grid grid-cols-2 lg:grid-cols-4 gap-6 mb-16">
+        <div class="bg-[#1a1a1a]/40 border border-white/5 p-6 rounded-2xl text-center">
+          <div class="text-xs text-electric-sulfur uppercase tracking-wider font-bold mb-2">CPU Overhead</div>
+          <div class="text-3xl lg:text-4xl font-headline-md text-white font-bold">-60%</div>
+        </div>
+        <div class="bg-[#1a1a1a]/40 border border-white/5 p-6 rounded-2xl text-center">
+          <div class="text-xs text-electric-sulfur uppercase tracking-wider font-bold mb-2">Battery Efficiency</div>
+          <div class="text-3xl lg:text-4xl font-headline-md text-white font-bold">+35%</div>
+        </div>
+        <div class="bg-[#1a1a1a]/40 border border-white/5 p-6 rounded-2xl text-center">
+          <div class="text-xs text-electric-sulfur uppercase tracking-wider font-bold mb-2">Frame Consistency</div>
+          <div class="text-3xl lg:text-4xl font-headline-md text-white font-bold">60 FPS</div>
+        </div>
+        <div class="bg-[#1a1a1a]/40 border border-white/5 p-6 rounded-2xl text-center">
+          <div class="text-xs text-electric-sulfur uppercase tracking-wider font-bold mb-2">Coordinate Capacity</div>
+          <div class="text-3xl lg:text-4xl font-headline-md text-white font-bold">10k Nodes</div>
+        </div>
+      </div>
+
+      <div class="grid grid-cols-1 lg:grid-cols-3 gap-12 mb-24">
+        <!-- Main Content -->
+        <div class="lg:col-span-2 space-y-12">
+          <!-- The Challenge -->
+          <div class="bg-[#1a1a1a]/50 border border-white/5 rounded-3xl p-8 backdrop-blur-md">
+            <h2 class="font-headline-md text-2xl text-white mb-4">The Challenge</h2>
+            <p class="font-body-lg text-on-surface-variant leading-relaxed mb-4">
+              Uber's dynamic rider application relies heavily on rendering high-frequency coordinate changes on native and web mapping components. Older devices and web clients regularly choked when loading multiple vehicles on screen, resulting in map stuttering and high battery draw.
+            </p>
+            <p class="font-body-lg text-on-surface-variant leading-relaxed">
+              Traditional DOM-based SVG and coordinate positioning could not scale to display hundreds of driver nodes concurrently while maintaining a 60 FPS viewport rendering pipeline.
+            </p>
+          </div>
+
+          <!-- The Strategy -->
+          <div class="bg-[#1a1a1a]/50 border border-white/5 rounded-3xl p-8 backdrop-blur-md">
+            <h2 class="font-headline-md text-2xl text-white mb-4">Our Strategy & Architectural Solution</h2>
+            <p class="font-body-lg text-on-surface-variant leading-relaxed mb-6">
+              We developed a high-fidelity mapping wrapper optimized for device performance:
+            </p>
+            
+            <div class="space-y-6">
+              <div>
+                <h4 class="text-white font-semibold mb-2">1. WebGL/Canvas Buffer Pipeline</h4>
+                <p class="text-on-surface-variant text-sm leading-relaxed">
+                  Replaced interactive SVG-based driver markers with a GPU-accelerated WebGL layer. Markers are drawn onto an HTML5 Canvas using vector sprites, moving coordinate updates straight to the device graphics card.
+                </p>
+              </div>
+              <div>
+                <h4 class="text-white font-semibold mb-2">2. Asynchronous Multi-Threaded Clustering</h4>
+                <p class="text-on-surface-variant text-sm leading-relaxed">
+                  Delegated marker clustering and viewport coordinate calculations to background Web Worker threads. This keeps the main browser UI thread entirely free to handle map zoom and pan gestures without frame lag.
+                </p>
+              </div>
+              <div>
+                <h4 class="text-white font-semibold mb-2">3. WebAssembly Coordinate Math</h4>
+                <p class="text-on-surface-variant text-sm leading-relaxed">
+                  Migrated heavy coordinate triangulation and path-smoothing mathematics from JavaScript to optimized Rust code compiled into WebAssembly, achieving near-native performance on all web browsers.
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Tech Details / Metrics -->
+        <div class="space-y-8">
+          <div class="bg-[#1a1a1a]/50 border border-white/5 rounded-3xl p-8 backdrop-blur-md">
+            <h3 class="font-headline-md text-xl text-white mb-4">Core Technology Stack</h3>
+            <ul class="space-y-3 text-sm text-on-surface-variant font-body-lg">
+              <li class="flex items-center gap-2"><span class="w-1.5 h-1.5 rounded-full bg-electric-sulfur"></span> Rust & WebAssembly</li>
+              <li class="flex items-center gap-2"><span class="w-1.5 h-1.5 rounded-full bg-electric-sulfur"></span> HTML5 Canvas / WebGL API</li>
+              <li class="flex items-center gap-2"><span class="w-1.5 h-1.5 rounded-full bg-electric-sulfur"></span> Web Workers (Parallel Threads)</li>
+              <li class="flex items-center gap-2"><span class="w-1.5 h-1.5 rounded-full bg-electric-sulfur"></span> React Native Web Mapper</li>
+              <li class="flex items-center gap-2"><span class="w-1.5 h-1.5 rounded-full bg-electric-sulfur"></span> protocol Buffers for API Requests</li>
+            </ul>
+          </div>
+
+          <div class="bg-[#1a1a1a]/50 border border-white/5 rounded-3xl p-8 backdrop-blur-md">
+            <h3 class="font-headline-md text-xl text-white mb-4">Engineering Takeaways</h3>
+            <p class="text-sm text-on-surface-variant leading-relaxed">
+              Bypassing the standard browser DOM is essential for real-time visualization systems. By moving vector coordinate calculations to WebWorkers and WebAssembly, we reduced device power consumption, extending battery runtime during active trips.
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+    
+    <Footer />
+  </div>
+
+  <MobileCanvas client:load />
+</Layout>

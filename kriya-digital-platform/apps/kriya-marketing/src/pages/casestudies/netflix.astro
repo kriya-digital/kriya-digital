@@ -1,0 +1,124 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import DesktopNav from '../../components/DesktopNav.astro';
+import MobileCanvas from '../../components/MobileCanvas.tsx';
+import Footer from '../../components/Footer.astro';
+---
+
+<Layout title="Kriya | Netflix Case Study">
+  <div class="hidden md:block">
+    <DesktopNav />
+    
+    <div class="px-6 max-w-7xl mx-auto pt-32 pb-24">
+      <!-- Back Link -->
+      <div class="mb-8">
+        <a href="/casestudies" class="inline-flex items-center gap-2 text-sm text-electric-sulfur hover:underline">
+          <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M15 19l-7-7 7-7"></path>
+          </svg>
+          Back to Case Studies
+        </a>
+      </div>
+
+      <section class="mb-16">
+        <span class="bg-electric-sulfur text-black px-3 py-1 rounded-full text-xs font-bold uppercase tracking-widest">Case Study</span>
+        <h1 class="font-headline-lg text-white text-5xl lg:text-[72px] tracking-tight leading-[1] mt-6 mb-6">
+          Netflix
+        </h1>
+        <p class="text-on-surface-variant text-xl font-body-lg max-w-3xl leading-relaxed">
+          Optimizing video segment loading pipelines and implementing edge predictive pre-fetch rules to eliminate initial playback buffering.
+        </p>
+      </section>
+
+      <!-- Key Metrics Row -->
+      <div class="grid grid-cols-2 lg:grid-cols-4 gap-6 mb-16">
+        <div class="bg-[#1a1a1a]/40 border border-white/5 p-6 rounded-2xl text-center">
+          <div class="text-xs text-electric-sulfur uppercase tracking-wider font-bold mb-2">Startup Delay</div>
+          <div class="text-3xl lg:text-4xl font-headline-md text-white font-bold">-55%</div>
+        </div>
+        <div class="bg-[#1a1a1a]/40 border border-white/5 p-6 rounded-2xl text-center">
+          <div class="text-xs text-electric-sulfur uppercase tracking-wider font-bold mb-2">Bitrate Dropoff</div>
+          <div class="text-3xl lg:text-4xl font-headline-md text-white font-bold">-32%</div>
+        </div>
+        <div class="bg-[#1a1a1a]/40 border border-white/5 p-6 rounded-2xl text-center">
+          <div class="text-xs text-electric-sulfur uppercase tracking-wider font-bold mb-2">Buffer Frequency</div>
+          <div class="text-3xl lg:text-4xl font-headline-md text-white font-bold">0% Event</div>
+        </div>
+        <div class="bg-[#1a1a1a]/40 border border-white/5 p-6 rounded-2xl text-center">
+          <div class="text-xs text-electric-sulfur uppercase tracking-wider font-bold mb-2">Edge Prefetch</div>
+          <div class="text-3xl lg:text-4xl font-headline-md text-white font-bold">Predictive</div>
+        </div>
+      </div>
+
+      <div class="grid grid-cols-1 lg:grid-cols-3 gap-12 mb-24">
+        <!-- Main Content -->
+        <div class="lg:col-span-2 space-y-12">
+          <!-- The Challenge -->
+          <div class="bg-[#1a1a1a]/50 border border-white/5 rounded-3xl p-8 backdrop-blur-md">
+            <h2 class="font-headline-md text-2xl text-white mb-4">The Challenge</h2>
+            <p class="font-body-lg text-on-surface-variant leading-relaxed mb-4">
+              Netflix delivers ultra-high-definition video content over varying user network conditions. A primary source of user friction is the startup buffering lag—the time delay between a user clicking "Play" and the video starting.
+            </p>
+            <p class="font-body-lg text-on-surface-variant leading-relaxed">
+              Traditional setups download video sequentially, causing delays on cellular networks. To keep viewers engaged, Netflix needed a streaming pipeline that pre-loaded the first 3-5 seconds of media segments predictively before the play button was clicked.
+            </p>
+          </div>
+
+          <!-- The Strategy -->
+          <div class="bg-[#1a1a1a]/50 border border-white/5 rounded-3xl p-8 backdrop-blur-md">
+            <h2 class="font-headline-md text-2xl text-white mb-4">Our Strategy & Architectural Solution</h2>
+            <p class="font-body-lg text-on-surface-variant leading-relaxed mb-6">
+              We implemented a predictive media chunking and CDN distribution framework:
+            </p>
+            
+            <div class="space-y-6">
+              <div>
+                <h4 class="text-white font-semibold mb-2">1. Predictive Hover-State Pre-fetching</h4>
+                <p class="text-on-surface-variant text-sm leading-relaxed">
+                  Configured edge middleware monitoring hover-intent and navigation behaviors. When a user focuses or hovers over a video tile for more than 400ms, the browser predictively requests the initial playback keyframe segment from the closest CDN point.
+                </p>
+              </div>
+              <div>
+                <h4 class="text-white font-semibold mb-2">2. Dynamic Adaptive Bitrate (ABR) Optimization</h4>
+                <p class="text-on-surface-variant text-sm leading-relaxed">
+                  Redesigned client-side video segments splitting logic. The first 3 seconds of a video are loaded in a lightweight, compressed index stream to enable immediate visual startup. The player then seamlessly upsizes to full 4K streams as buffer levels stabilize.
+                </p>
+              </div>
+              <div>
+                <h4 class="text-white font-semibold mb-2">3. CDN Routing rules and Edge Optimization</h4>
+                <p class="text-on-surface-variant text-sm leading-relaxed">
+                  Tailored routing parameters to prioritize initial playback chunk delivery. Custom header tags in request packets direct CDN routers to bypass deep queues for the startup segment, avoiding network congestion delay.
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Tech Details / Metrics -->
+        <div class="space-y-8">
+          <div class="bg-[#1a1a1a]/50 border border-white/5 rounded-3xl p-8 backdrop-blur-md">
+            <h3 class="font-headline-md text-xl text-white mb-4">Core Technology Stack</h3>
+            <ul class="space-y-3 text-sm text-on-surface-variant font-body-lg">
+              <li class="flex items-center gap-2"><span class="w-1.5 h-1.5 rounded-full bg-electric-sulfur"></span> HLS & MPEG-DASH Streams</li>
+              <li class="flex items-center gap-2"><span class="w-1.5 h-1.5 rounded-full bg-electric-sulfur"></span> Edge Workers & Pre-fetching</li>
+              <li class="flex items-center gap-2"><span class="w-1.5 h-1.5 rounded-full bg-electric-sulfur"></span> Next.js & Client Video Player API</li>
+              <li class="flex items-center gap-2"><span class="w-1.5 h-1.5 rounded-full bg-electric-sulfur"></span> Web Workers for Chunk Buffer Queue</li>
+              <li class="flex items-center gap-2"><span class="w-1.5 h-1.5 rounded-full bg-electric-sulfur"></span> Cloudflare Keyframe Cache Optimization</li>
+            </ul>
+          </div>
+
+          <div class="bg-[#1a1a1a]/50 border border-white/5 rounded-3xl p-8 backdrop-blur-md">
+            <h3 class="font-headline-md text-xl text-white mb-4">Engineering Takeaways</h3>
+            <p class="text-sm text-on-surface-variant leading-relaxed">
+              Achieving bufferless playback requires client prediction. Combining hover-state pre-fetching with adaptive initial compression guarantees zero-latency visual feedback for users on all connection types.
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+    
+    <Footer />
+  </div>
+
+  <MobileCanvas client:load />
+</Layout>

@@ -1,0 +1,81 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import DesktopNav from '../../components/DesktopNav.astro';
+import MobileCanvas from '../../components/MobileCanvas.tsx';
+import Footer from '../../components/Footer.astro';
+import ServiceCard from '../../components/ServiceCard.astro';
+import SliderWrapper from '../../components/SliderWrapper.astro';
+
+import zomatoLogo from '../../assets/zomato-brand-logo.svg';
+import uberLogo from '../../assets/uber-brand-logo.svg';
+import notionLogo from '../../assets/notion-brand-logo.svg';
+import netflixLogo from '../../assets/netflix-brand-logo.svg';
+---
+
+<Layout title="Kriya | Case Studies">
+  <div class="hidden md:block">
+    <DesktopNav />
+    
+    <div class="px-6 max-w-7xl mx-auto pt-32 pb-24">
+      <!-- Hero Section -->
+      <section class="text-center mb-24">
+        <h1 class="font-headline-lg text-white text-5xl lg:text-[88px] tracking-tight leading-[1] mb-6">
+          Case Studies
+        </h1>
+        <p class="text-on-surface-variant text-xl font-body-lg max-w-3xl mx-auto">
+          Deep dives into complex digital engineering and design challenges solved by our team.
+        </p>
+      </section>
+
+      <!-- Slider Grid of Case Studies -->
+      <div class="mb-32">
+        <SliderWrapper>
+          <div class="snap-start shrink-0 w-full md:w-[calc(50%-1rem)] lg:w-[calc(33.333%-1.333rem)]">
+            <ServiceCard 
+              title="Zomato" 
+              techStack="Scaling Checkout Engines • Edge State Sync" 
+              imageContent={zomatoLogo}
+              altText="Zomato Logo"
+              href="/casestudies/zomato"
+              logoMode={true}
+            />
+          </div>
+          <div class="snap-start shrink-0 w-full md:w-[calc(50%-1rem)] lg:w-[calc(33.333%-1.333rem)]">
+            <ServiceCard 
+              title="Uber" 
+              techStack="Map Layer Optimization • Canvas GPU Pipeline" 
+              imageContent={uberLogo}
+              altText="Uber Logo"
+              href="/casestudies/uber"
+              logoMode={true}
+            />
+          </div>
+          <div class="snap-start shrink-0 w-full md:w-[calc(50%-1rem)] lg:w-[calc(33.333%-1.333rem)]">
+            <ServiceCard 
+              title="Notion" 
+              techStack="Collaborative Workspaces • Offline-First CRDTs" 
+              imageContent={notionLogo}
+              altText="Notion Logo"
+              href="/casestudies/notion"
+              logoMode={true}
+            />
+          </div>
+          <div class="snap-start shrink-0 w-full md:w-[calc(50%-1rem)] lg:w-[calc(33.333%-1.333rem)]">
+            <ServiceCard 
+              title="Netflix" 
+              techStack="Video Pre-fetching • Edge Buffering Optimization" 
+              imageContent={netflixLogo}
+              altText="Netflix Logo"
+              href="/casestudies/netflix"
+              logoMode={true}
+            />
+          </div>
+        </SliderWrapper>
+      </div>
+    </div>
+    
+    <Footer />
+  </div>
+
+  <MobileCanvas client:load />
+</Layout>

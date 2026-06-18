@@ -1,96 +1,148 @@
 # Kriya Information Architecture & Sitemap
 
-This blueprint outlines the complete Information Architecture (IA) for Kriya. It strictly adheres to the Three-Click Rule, user mental models, SEO best practices against cannibalization, and DPDP Act compliance requirements.
-
-## Architectural Principles Enforced:
-1. **Three-Click Rule**: The deepest content page is strictly Level 3.
-2. **Mental Models**: Services are grouped by business objectives (Build, Scale, Automate), not internal departments.
-3. **Nomenclature**: Human services use `Kriya [Service]`, proprietary software uses `Kriya-[Noun]`.
-4. **Compliance**: Dedicated space for DPDP mechanisms, DPAs, and Privacy features.
+> **Last updated:** June 2026  
+> This document reflects the **actual deployed routes** in the live codebase.  
+> The previous version was outdated — `/work`, `/insights`, and `/solutions/ai` have been removed.
 
 ---
 
-## 1. Visual Sitemap (Mermaid.js Blueprint)
+## 1. Visual Sitemap
 
 ```mermaid
 graph TD
     %% Level 1: Root Domain
-    Root["Level 1: Kriya Root Domain (Home)"]
+    Root["home (/)"]
 
-    %% Level 2: Primary Navigation Hubs
-    Root --> Hub1["Solutions (Services Ecosystem)"]
-    Root --> Hub3["Work (Proof of Capability)"]
-    Root --> Hub4["Insights (Knowledge Hub)"]
-    Root --> Hub5["Company & Legal (Utility)"]
+    %% Level 1: Primary Navigation Hubs
+    Root --> Hub1["solutions (/solutions)"]
+    Root --> Hub2["casestudies (/casestudies)"]
+    Root --> Hub3["contact (/contact)"]
 
-    %% Level 3: Solutions
-    Hub1 --> Sol_Build["Build: Kriya Web | Kriya App | Kriya UI/UX"]
-    Hub1 --> Sol_Scale["Scale: Kriya Growth | Kriya SEO | Kriya Social | Kriya Brand"]
-    Hub1 --> Sol_Auto["Automate: Kriya AI"]
+    %% Level 2: Solutions — The Three Pillars
+    Hub1 --> Sol_Build["build (/solutions/build)"]
+    Hub1 --> Sol_Scale["scale (/solutions/scale)"]
+    Hub1 --> Sol_Auto["automate (/solutions/automate)"]
 
+    %% Level 2: Case Studies
+    Hub2 --> CS_Zomato["zomato (/casestudies/zomato)"]
+    Hub2 --> CS_Uber["uber (/casestudies/uber)"]
+    Hub2 --> CS_Notion["notion (/casestudies/notion)"]
+    Hub2 --> CS_Netflix["netflix (/casestudies/netflix)"]
 
-
-    %% Level 3: Work
-    Hub3 --> Work_Cases["Interactive Case Studies"]
-    Hub3 --> Work_Demos["Live SaaS Demonstrations"]
-
-    %% Level 3: Insights
-    Hub4 --> Ins_Blog["Engineering & Strategy Blog"]
-    Hub4 --> Ins_Whitepapers["Technical Whitepapers"]
-
-    %% Level 3: Company & Legal
-    Hub5 --> Corp_Contact["Contact Portal"]
-    Hub5 --> Corp_Privacy["Dynamic Privacy Notice (DPDP)"]
-    Hub5 --> Corp_DPA["Vendor DPAs"]
-    Hub5 --> Corp_Grievance["Grievance Redressal Mechanism"]
-
-    classDef rootFill fill:#0F172A,stroke:#4F46E5,stroke-width:4px,color:#fff;
-    classDef hubFill fill:#4F46E5,stroke:#06B6D4,stroke-width:2px,color:#fff;
-    classDef leafFill fill:#F8FAFC,stroke:#1E293B,stroke-width:1px,color:#0F172A;
-    classDef complianceFill fill:#EC4899,stroke:#9D174D,stroke-width:2px,color:#fff;
+    classDef rootFill fill:#131313,stroke:#fcfd95,stroke-width:4px,color:#fff;
+    classDef hubFill fill:#1a1a1a,stroke:#fcfd95,stroke-width:2px,color:#fcfd95;
+    classDef leafFill fill:#1a1a1a,stroke:#ffffff22,stroke-width:1px,color:#ffffff99;
 
     class Root rootFill;
-    class Hub1,Hub3,Hub4,Hub5 hubFill;
-    class Sol_Build,Sol_Scale,Sol_Auto,Work_Cases,Work_Demos,Ins_Blog,Ins_Whitepapers leafFill;
-    class Corp_Contact,Corp_Privacy,Corp_DPA,Corp_Grievance complianceFill;
+    class Hub1,Hub2,Hub3 hubFill;
+    class Sol_Build,Sol_Scale,Sol_Auto,CS_Zomato,CS_Uber,CS_Notion,CS_Netflix leafFill;
 ```
 
 ---
 
-## 2. Structural Breakdown (Directory Format)
+## 2. Structural Breakdown
 
-### Level 1: `kriya.digital/` (Root)
-*The primary entry point prioritizing direct routing to the four central hubs.*
+### `/` — Homepage
+Entry point. Full-screen Bento Grid layout with:
+- **Hero block** — "Everything web. we do." with floating tech icons
+- **Solutions block** — Build / Scale / Automate preview grid
+- **Case Studies block** — Zomato / Uber / Notion / Netflix preview grid
 
-### Level 2: `/solutions/` (Ecosystem of Services Hub)
-*Organized via Task-Oriented Mental Models.*
-* **Level 3: `/solutions/build/`** (Digital Architecture & Infrastructure)
-  * `Kriya Web`: High-performance web platforms.
-  * `Kriya App`: Native and cross-platform ecosystem engineering.
-  * `Kriya UI/UX`: Interface architecture & user research.
-* **Level 3: `/solutions/scale/`** (Audience & Market Expansion)
-  * `Kriya Growth`: Digital marketing and performance funnels.
-  * `Kriya SEO`: Technical and semantic search optimization.
-  * `Kriya Social`: Community architecture and social media management.
-  * `Kriya Brand`: Digital identity and market positioning.
-* **Level 3: `/solutions/automate/`** (Intelligence & Workflows)
-  * `Kriya AI`: Machine learning integration and automated systems.
+---
 
+### `/solutions` — Solutions Overview
+Landing page listing all three service pillars with links to each.
 
+#### `/solutions/build` — Build
+Web Development · App Development · UI/UX Engineering  
+Tech: React, Next.js, Astro, Flutter, Figma
 
-### Level 2: `/work/` (Proof of Capability Hub)
-*Engineered for visual validation.*
-* **Level 3: `/work/case-studies/`** (Interactive client success stories)
-* **Level 3: `/work/live-demos/`** (Sandboxed environments for Kriya SaaS tools)
+#### `/solutions/scale` — Scale
+Digital Marketing · SEO · Meta Ads · Brand Building  
+Tech: Google Ads, Google Search Console, Meta, Adobe Illustrator
 
-### Level 2: `/insights/` (Knowledge Hub)
-*Engineered for Thought Leadership & Semantic SEO.*
-* **Level 3: `/insights/engineering-blog/`** (Technical breakdowns and Kriya workflows)
-* **Level 3: `/insights/whitepapers/`** (Deep-dive research on AI, growth, and development)
+#### `/solutions/automate` — Automate
+AI/ML Integration · WhatsApp Automation · Workflow Intelligence  
+Tech: OpenAI, WhatsApp Business API
 
-### Level 2: `/corporate/` (Utility & Compliance Hub)
-*Clearly mapped to satisfy DPDP Act regulations.*
-* **Level 3: `/corporate/contact/`** (Unified Contact Portal)
-* **Level 3: `/corporate/privacy-notice/`** (Dynamic Privacy Notice mapping PII usage)
-* **Level 3: `/corporate/dpa/`** (Vendor Data Processing Agreements)
-* **Level 3: `/corporate/grievance-redressal/`** (Dedicated mechanism for data subjects)
+---
+
+### `/casestudies` — Case Studies
+Landing page listing all four published case studies.
+
+#### `/casestudies/zomato`
+Challenge: Food delivery order surge & real-time tracking latency  
+Stack: Node.js, WebSockets, Redis, Kubernetes
+
+#### `/casestudies/uber`
+Challenge: High-density map rendering & driver matching at scale  
+Stack: Mapbox GL JS, Go microservices, gRPC, H3 geospatial indexing
+
+#### `/casestudies/notion`
+Challenge: Offline-first sync & conflict resolution in collaborative docs  
+Stack: Yjs CRDTs, IndexedDB, WebSockets, Node.js Hub Servers
+
+#### `/casestudies/netflix`
+Challenge: Startup buffering latency & adaptive video streaming  
+Stack: HLS/MPEG-DASH, Edge Workers, Cloudflare, Web Workers
+
+---
+
+### `/contact` — Contact
+Contact form with WhatsApp deep-link CTA. Inquiry categories map to the three solution pillars.
+
+---
+
+## 3. Navigation Structure
+
+### Desktop Nav (DesktopNav.astro)
+```
+[Logo]     Solutions ▾   Case Studies   Contact     [Start Building →]
+                │
+                ├── Build
+                ├── Scale
+                └── Automate
+```
+
+### Mobile Canvas (MobileCanvas.tsx) — 4 Slides
+```
+Slide 1: Home         → Kriya branding + hero CTA
+Slide 2: Solutions    → Build / Scale / Automate cards
+Slide 3: Case Studies → Zomato / Uber / Notion / Netflix cards
+Slide 4: Contact      → WhatsApp / email CTA
+```
+
+### Footer (Footer.astro)
+```
+Kriya Hubs:   Solutions Ecosystem | Case Studies | Contact Us
+Kriya Legal:  Terms & Conditions | Privacy Notice | Refund & Cancellation
+Connect:      Contact Portal
+Social:       X · Instagram · YouTube · GitHub
+```
+
+---
+
+## 4. Removed Routes (Historical Reference)
+
+> ⚠️ These routes no longer exist. Do NOT link to them.
+
+| Route | Reason Removed |
+|-------|---------------|
+| `/work` | Renamed and restructured as `/casestudies` |
+| `/work/casestudy` | Replaced by `/casestudies/*` individual pages |
+| `/insights` | Removed — not part of current scope |
+| `/insights/blog` | Never built |
+| `/insights/whitepaper` | Never built |
+| `/solutions/ai` | Renamed to `/solutions/automate` |
+
+---
+
+## 5. Planned / Future Routes
+
+> Not yet built. Add here when scoped.
+
+| Route | Purpose |
+|-------|---------|
+| `/corporate/privacy-notice` | Privacy policy page |
+| `/corporate/dpa` | Data Processing Agreement |
+| `/corporate/grievance-redressal` | Refund & Cancellation policy |

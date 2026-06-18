@@ -1,0 +1,190 @@
+---
+import Layout from "../../layouts/Layout.astro";
+import DesktopNav from "../../components/DesktopNav.astro";
+import MobileCanvas from "../../components/MobileCanvas.tsx";
+import Footer from "../../components/Footer.astro";
+import ServiceCard from "../../components/ServiceCard.astro";
+import SliderWrapper from "../../components/SliderWrapper.astro";
+
+import reactLogo from "../../assets/react.svg";
+import flutterLogo from "../../assets/flutter.svg";
+import figmaLogo from "../../assets/figma.svg";
+import googleadsLogo from "../../assets/googleads.svg";
+import googlesearchconsoleLogo from "../../assets/googlesearchconsole.svg";
+import metaLogo from "../../assets/meta.svg";
+import adobeillustratorLogo from "../../assets/adobeillustrator.svg";
+import openaiLogo from "../../assets/openai.svg";
+import whatsappLogo from "../../assets/whatsapp.svg";
+---
+
+<Layout title="Kriya | Solutions">
+  <div class="hidden md:block">
+    <DesktopNav />
+
+    <div class="px-6 max-w-7xl mx-auto pt-32 pb-24">
+      <div class="text-center mb-16">
+        <h1
+          class="font-headline-lg text-white text-5xl lg:text-[64px] tracking-tight mb-6"
+        >
+          Our Solutions
+        </h1>
+        <p
+          class="text-on-surface-variant text-lg font-body-lg max-w-2xl mx-auto"
+        >
+          We engineer high-performance digital infrastructure designed to scale.
+          Explore our comprehensive suite of solutions.
+        </p>
+      </div>
+
+      <!-- BUILD PILLAR -->
+      <div class="mb-24">
+        <div class="flex items-center gap-4 mb-8 border-b border-white/10 pb-4">
+          <span
+            class="bg-electric-sulfur text-black px-3 py-1 rounded-full text-xs font-bold uppercase tracking-widest"
+            >Pillar 1</span
+          >
+          <h2 class="font-headline-md text-3xl text-white">Build</h2>
+        </div>
+        <SliderWrapper>
+          <div class="snap-start shrink-0 w-full md:w-[calc(50%-1rem)] lg:w-[calc(33.333%-1.333rem)]">
+            <ServiceCard 
+              title="Web Development" 
+              techStack="React • Next.js • Astro" 
+              imageContent={reactLogo}
+              altText="Web Development Logo"
+              href="/solutions/build"
+              logoMode={true}
+            />
+          </div>
+          <div class="snap-start shrink-0 w-full md:w-[calc(50%-1rem)] lg:w-[calc(33.333%-1.333rem)]">
+            <ServiceCard 
+              title="App Development" 
+              techStack="React Native • Flutter • Swift" 
+              imageContent={flutterLogo}
+              altText="App Development Logo"
+              href="/solutions/build"
+              logoMode={true}
+            />
+          </div>
+          <div class="snap-start shrink-0 w-full md:w-[calc(50%-1rem)] lg:w-[calc(33.333%-1.333rem)]">
+            <ServiceCard 
+              title="UI/UX Engineering" 
+              techStack="Figma • Framer • Motion" 
+              imageContent={figmaLogo}
+              altText="UI/UX Engineering Logo"
+              href="/solutions/build"
+              logoMode={true}
+            />
+          </div>
+        </SliderWrapper>
+      </div>
+
+      <!-- SCALE PILLAR -->
+      <div class="mb-24">
+        <div class="flex items-center gap-4 mb-8 border-b border-white/10 pb-4">
+          <span
+            class="bg-electric-sulfur text-black px-3 py-1 rounded-full text-xs font-bold uppercase tracking-widest"
+            >Pillar 2</span
+          >
+          <h2 class="font-headline-md text-3xl text-white">Scale</h2>
+        </div>
+        <SliderWrapper>
+          <div class="snap-start shrink-0 w-full md:w-[calc(50%-1rem)] lg:w-[calc(33.333%-1.333rem)]">
+            <ServiceCard 
+              title="Digital Marketing" 
+              techStack="Performance Marketing • Media Buying • Funnels" 
+              imageContent={googleadsLogo}
+              altText="Digital Marketing Logo"
+              href="/solutions/scale"
+              logoMode={true}
+            />
+          </div>
+          <div class="snap-start shrink-0 w-full md:w-[calc(50%-1rem)] lg:w-[calc(33.333%-1.333rem)]">
+            <ServiceCard 
+              title="Brand Building" 
+              techStack="Identity Design • Brand Strategy • Positioning" 
+              imageContent={adobeillustratorLogo}
+              altText="Brand Building Logo"
+              href="/solutions/scale"
+              logoMode={true}
+            />
+          </div>
+          <div class="snap-start shrink-0 w-full md:w-[calc(50%-1rem)] lg:w-[calc(33.333%-1.333rem)]">
+            <ServiceCard 
+              title="Meta Ads" 
+              techStack="Campaign Management • Creative Optimization" 
+              imageContent={metaLogo}
+              altText="Meta Ads Logo"
+              href="/solutions/scale"
+              logoMode={true}
+            />
+          </div>
+          <div class="snap-start shrink-0 w-full md:w-[calc(50%-1rem)] lg:w-[calc(33.333%-1.333rem)]">
+            <ServiceCard 
+              title="SEO Optimization" 
+              techStack="Technical SEO • Content Strategy • Link Building" 
+              imageContent={googlesearchconsoleLogo}
+              altText="SEO Optimization Logo"
+              href="/solutions/scale"
+              logoMode={true}
+            />
+          </div>
+        </SliderWrapper>
+      </div>
+
+      <!-- AUTOMATE PILLAR -->
+      <div class="mb-24">
+        <div class="flex items-center gap-4 mb-8 border-b border-white/10 pb-4">
+          <span
+            class="bg-electric-sulfur text-black px-3 py-1 rounded-full text-xs font-bold uppercase tracking-widest"
+            >Pillar 3</span
+          >
+          <h2 class="font-headline-md text-3xl text-white">Automate</h2>
+        </div>
+        <SliderWrapper>
+          <div class="snap-start shrink-0 w-full md:w-[calc(50%-1rem)] lg:w-[calc(33.333%-1.333rem)]">
+            <ServiceCard 
+              title="Automation Solution" 
+              techStack="Machine Learning • Process Automation • Systems Integration" 
+              imageContent={openaiLogo}
+              altText="Automation Solution Logo"
+              href="/solutions/automate"
+              logoMode={true}
+            />
+          </div>
+          <div class="snap-start shrink-0 w-full md:w-[calc(50%-1rem)] lg:w-[calc(33.333%-1.333rem)]">
+            <ServiceCard 
+              title="WhatsApp Automation" 
+              techStack="Chatbots • Workflow Integration • CRM Setup" 
+              imageContent={whatsappLogo}
+              altText="WhatsApp Automation Logo"
+              href="/solutions/automate"
+              logoMode={true}
+            />
+          </div>
+        </SliderWrapper>
+      </div>
+
+      <!-- WhatsApp CTA -->
+      <section class="bg-electric-sulfur rounded-[32px] p-16 text-center flex flex-col items-center justify-center shadow-[0_0_100px_rgba(252,253,149,0.15)] relative overflow-hidden">
+        <div class="absolute inset-0 bg-gradient-to-b from-white/20 to-transparent pointer-events-none"></div>
+        <h2 class="font-headline-md text-4xl lg:text-5xl text-black mb-10 relative z-10 leading-tight">
+          Ready to transform your business?<br/>Chat directly with our team.
+        </h2>
+        <a 
+          href="/contact" 
+          class="relative z-10 inline-flex items-center gap-3 bg-black text-electric-sulfur px-10 py-5 rounded-full font-headline-md text-xl font-bold hover:scale-105 hover:shadow-2xl transition-all active:scale-95"
+        >
+          <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 12h.01M12 12h.01M16 12h.01M21 12c0 4.418-4.03 8-9 8a9.863 9.863 0 01-4.255-.949L3 20l1.395-3.72C3.512 15.042 3 13.574 3 12c0-4.418 4.03-8 9-8s9 3.582 9 8z"></path>
+          </svg>
+          Get in Touch
+        </a>
+      </section>
+    </div>
+
+    <Footer />
+  </div>
+
+  <MobileCanvas client:load />
+</Layout>

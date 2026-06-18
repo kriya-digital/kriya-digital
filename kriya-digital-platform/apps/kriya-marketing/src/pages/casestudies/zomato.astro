@@ -1,0 +1,124 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import DesktopNav from '../../components/DesktopNav.astro';
+import MobileCanvas from '../../components/MobileCanvas.tsx';
+import Footer from '../../components/Footer.astro';
+---
+
+<Layout title="Kriya | Zomato Case Study">
+  <div class="hidden md:block">
+    <DesktopNav />
+    
+    <div class="px-6 max-w-7xl mx-auto pt-32 pb-24">
+      <!-- Back Link -->
+      <div class="mb-8">
+        <a href="/casestudies" class="inline-flex items-center gap-2 text-sm text-electric-sulfur hover:underline">
+          <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M15 19l-7-7 7-7"></path>
+          </svg>
+          Back to Case Studies
+        </a>
+      </div>
+
+      <section class="mb-16">
+        <span class="bg-electric-sulfur text-black px-3 py-1 rounded-full text-xs font-bold uppercase tracking-widest">Case Study</span>
+        <h1 class="font-headline-lg text-white text-5xl lg:text-[72px] tracking-tight leading-[1] mt-6 mb-6">
+          Zomato
+        </h1>
+        <p class="text-on-surface-variant text-xl font-body-lg max-w-3xl leading-relaxed">
+          Re-architecting Zomato's high-scale ordering checkout funnel and migrating cart state synchronization to edge servers to sustain 10x spikes.
+        </p>
+      </section>
+
+      <!-- Key Metrics Row -->
+      <div class="grid grid-cols-2 lg:grid-cols-4 gap-6 mb-16">
+        <div class="bg-[#1a1a1a]/40 border border-white/5 p-6 rounded-2xl text-center">
+          <div class="text-xs text-electric-sulfur uppercase tracking-wider font-bold mb-2">Checkout Latency</div>
+          <div class="text-3xl lg:text-4xl font-headline-md text-white font-bold">-42%</div>
+        </div>
+        <div class="bg-[#1a1a1a]/40 border border-white/5 p-6 rounded-2xl text-center">
+          <div class="text-xs text-electric-sulfur uppercase tracking-wider font-bold mb-2">Conversion Lift</div>
+          <div class="text-3xl lg:text-4xl font-headline-md text-white font-bold">+12.4%</div>
+        </div>
+        <div class="bg-[#1a1a1a]/40 border border-white/5 p-6 rounded-2xl text-center">
+          <div class="text-xs text-electric-sulfur uppercase tracking-wider font-bold mb-2">Peak Throughput</div>
+          <div class="text-3xl lg:text-4xl font-headline-md text-white font-bold">150k Req/s</div>
+        </div>
+        <div class="bg-[#1a1a1a]/40 border border-white/5 p-6 rounded-2xl text-center">
+          <div class="text-xs text-electric-sulfur uppercase tracking-wider font-bold mb-2">Checkout Dropoff</div>
+          <div class="text-3xl lg:text-4xl font-headline-md text-white font-bold">-18%</div>
+        </div>
+      </div>
+
+      <div class="grid grid-cols-1 lg:grid-cols-3 gap-12 mb-24">
+        <!-- Main Content -->
+        <div class="lg:col-span-2 space-y-12">
+          <!-- The Challenge -->
+          <div class="bg-[#1a1a1a]/50 border border-white/5 rounded-3xl p-8 backdrop-blur-md">
+            <h2 class="font-headline-md text-2xl text-white mb-4">The Challenge</h2>
+            <p class="font-body-lg text-on-surface-variant leading-relaxed mb-4">
+              During key promotional campaigns, national sporting finals, and weekend peak windows, Zomato's checkout flow faced intense transaction volume. The core checkout service regularly experienced network queues, database lock contention, and third-party payment gateway timeouts.
+            </p>
+            <p class="font-body-lg text-on-surface-variant leading-relaxed">
+              These factors contributed to micro-latencies of up to 4.2 seconds during checkout loading, causing frustrated users to abandon their orders. Zomato required a highly optimized client interface and edge infrastructure capable of handling high write requests while delivering instantaneous UI feedback.
+            </p>
+          </div>
+
+          <!-- The Strategy -->
+          <div class="bg-[#1a1a1a]/50 border border-white/5 rounded-3xl p-8 backdrop-blur-md">
+            <h2 class="font-headline-md text-2xl text-white mb-4">Our Strategy & Architectural Solution</h2>
+            <p class="font-body-lg text-on-surface-variant leading-relaxed mb-6">
+              Our engineering team re-designed Zomato's checkout stack from the ground up:
+            </p>
+            
+            <div class="space-y-6">
+              <div>
+                <h4 class="text-white font-semibold mb-2">1. Edge Cart State Virtualization</h4>
+                <p class="text-on-surface-variant text-sm leading-relaxed">
+                  We decoupled cart operations from the centralized relational database. Instead, checkout configurations, promo code applying, and delivery fees are calculated and cached on Edge Middleware close to the user, bypassing regional database queries entirely.
+                </p>
+              </div>
+              <div>
+                <h4 class="text-white font-semibold mb-2">2. Dynamic Queue Optimization & Resiliency</h4>
+                <p class="text-on-surface-variant text-sm leading-relaxed">
+                  Introduced an asynchronous message-broker queue system that buffer checkout events. When payment gateways timeout, the transaction transitions into an active, client-polled state, preventing duplicate request attempts and interface lockups.
+                </p>
+              </div>
+              <div>
+                <h4 class="text-white font-semibold mb-2">3. One-Tap Payment Interface</h4>
+                <p class="text-on-surface-variant text-sm leading-relaxed">
+                  Redesigned the frontend checkout interface using micro-animations and predictive layout rendering, ensuring the preferred payment options are loaded and pre-authorized dynamically.
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Tech Details / Metrics -->
+        <div class="space-y-8">
+          <div class="bg-[#1a1a1a]/50 border border-white/5 rounded-3xl p-8 backdrop-blur-md">
+            <h3 class="font-headline-md text-xl text-white mb-4">Core Technology Stack</h3>
+            <ul class="space-y-3 text-sm text-on-surface-variant font-body-lg">
+              <li class="flex items-center gap-2"><span class="w-1.5 h-1.5 rounded-full bg-electric-sulfur"></span> Next.js (Server Components)</li>
+              <li class="flex items-center gap-2"><span class="w-1.5 h-1.5 rounded-full bg-electric-sulfur"></span> Edge Middleware & Functions</li>
+              <li class="flex items-center gap-2"><span class="w-1.5 h-1.5 rounded-full bg-electric-sulfur"></span> Apache Kafka & Redis Cache</li>
+              <li class="flex items-center gap-2"><span class="w-1.5 h-1.5 rounded-full bg-electric-sulfur"></span> Tailwind CSS & Framer Motion</li>
+              <li class="flex items-center gap-2"><span class="w-1.5 h-1.5 rounded-full bg-electric-sulfur"></span> gRPC for Microservices Communication</li>
+            </ul>
+          </div>
+
+          <div class="bg-[#1a1a1a]/50 border border-white/5 rounded-3xl p-8 backdrop-blur-md">
+            <h3 class="font-headline-md text-xl text-white mb-4">Engineering Takeaways</h3>
+            <p class="text-sm text-on-surface-variant leading-relaxed">
+              Moving calculation logic to edge servers allowed us to maintain zero-downtime during peak events. Decoupling cart validation from relational database read/writes was the single greatest factor in reducing page transaction delays.
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+    
+    <Footer />
+  </div>
+
+  <MobileCanvas client:load />
+</Layout>
